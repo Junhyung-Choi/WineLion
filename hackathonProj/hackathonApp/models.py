@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
+
 # Create your models here.
 class Wine(models.Model):
     name = models.CharField(max_length=50)
@@ -16,20 +18,30 @@ class Wine(models.Model):
     dry = models.FloatField()
     body = models.FloatField()
     tannin = models.FloatField()
+    
+
+    def __str__(self):
+        return self.name
 
 class Review(models.Model):
-    user_id = models.ForeignKey("hackathonApp.CustomUser", on_delete=models.CASCADE)
+    referring_user_id = models.ForeignKey("hackathonApp.CustomUser", on_delete=models.CASCADE)
     write_time = models.DateTimeField(auto_now=False, auto_now_add=True)
     last_modified_time = models.DateTimeField(auto_now=True, auto_now_add=False)
     star = models.IntegerField()
     body = models.TextField()
-    wine_id = models.ForeignKey("hackathonApp.Wine", on_delete=models.CASCADE)
+    referring_wine_id = models.ForeignKey("hackathonApp.Wine", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.referring_user_id)
 
 class Event(models.Model):
     title = models.CharField(max_length=50)
     body = models.TextField()
     image = models.ImageField(upload_to='images/',blank = True, null = True)
     wines = models.ManyToManyField("hackathonApp.Wine")
+
+    def __str__(self):
+        return self.title
 
 
 class CustomUser(AbstractUser):
@@ -55,3 +67,6 @@ class Food(models.Model):
     tag1 = models.CharField(max_length=10)
     tag2 = models.CharField(max_length=10)
     wines = models.ManyToManyField("hackathonApp.Wine") 
+
+    def __str__(self):
+        return self.name
