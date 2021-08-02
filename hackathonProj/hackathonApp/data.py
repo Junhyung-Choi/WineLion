@@ -35,7 +35,8 @@ def insert_wine():
     print("와인 성공!")
 
 def insert_food():
-    CSV_PATH = "/Users/cho/Desktop/wine/WineLion/hackathonProj/data/fooddata.csv"
+    
+    CSV_PATH = os.path.join(BASE_DIR,"../data/fooddata.csv")
     with open(CSV_PATH, newline='') as csvfile:
         data_reader = csv.DictReader(csvfile)
         for row in data_reader:
@@ -52,7 +53,6 @@ def insert_food():
 def insert_review():
     
     CSV_PATH = os.path.join(BASE_DIR,"../data/reviewdata.csv")
-    #CSV_PATH = "/Users/cho/Desktop/wine/WineLion/hackathonProj/data/reviewdata.csv"
     with open(CSV_PATH, newline='') as csvfile:
         data_reader = csv.DictReader(csvfile)
         for row in data_reader:
