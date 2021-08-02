@@ -1,17 +1,18 @@
 import csv
 import os
+import sys
 import django
 from django.utils import timezone
 
-os.environ.setdefault("DJANGO_SETTING_MODULE","hackathonProj.settings")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+os.environ.setdefault("DJANGO_SETTING_MODULE",'hackathonProj.settings')
 django.setup()
 
 from hackathonApp.models import *
 
-
-
 def insert_wine():
-    CSV_PATH = "/Users/cho/Desktop/wine/WineLion/hackathonProj/data/winedata.csv"
+    CSV_PATH = os.path.join(BASE_DIR,"../data/windedata.csv")
     with open(CSV_PATH, newline='') as csvfile:
         data_reader = csv.DictReader(csvfile)
         for row in data_reader:
@@ -49,7 +50,9 @@ def insert_food():
 
 
 def insert_review():
-    CSV_PATH = "/Users/cho/Desktop/wine/WineLion/hackathonProj/data/reviewdata.csv"
+    
+    CSV_PATH = os.path.join(BASE_DIR,"../data/reviewdata.csv")
+    #CSV_PATH = "/Users/cho/Desktop/wine/WineLion/hackathonProj/data/reviewdata.csv"
     with open(CSV_PATH, newline='') as csvfile:
         data_reader = csv.DictReader(csvfile)
         for row in data_reader:

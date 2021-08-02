@@ -7,8 +7,8 @@ def main(request):
     return render(request,'practice.html')
 
 def insert_data(request):
-    insert_wine()
-    insert_food()
+    #insert_wine()
+    #insert_food()
     insert_review()
     return redirect('main')
 
