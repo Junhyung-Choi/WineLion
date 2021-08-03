@@ -7,6 +7,22 @@
     <title>Document</title>
 </head>
 <body>
+    {% csrf_token %}
     hi
+    {{ wine }}
+    {{ wine.name }}
+    {{ wine.kind }}
+    {{ wine.country }}
+    {{ wine.price }}
+    {{ wine.grape_type1 }}
+    {{ wine.grape_type2 }}
+    {{ wine.explain }}
+    {{ wine.taste1 }}
+    {{ wine.taste2 }}
+    {{ wine.alchol }}
+    {{ wine.dry }}
+    {{ wine.body }}
+    {{ wine.tannin }}
+    {{ food }}
 </body>
 </html>
