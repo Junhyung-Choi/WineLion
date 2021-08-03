@@ -22,6 +22,7 @@ def insert_data(request):
     #insert_food()
     #insert_review()
     #insert_wine2food()
+    #fix_WR()
     return redirect('main')
 
 

@@ -85,10 +85,22 @@ def insert_wine2food():
             print(row)
             wine = Wine.objects.get(id=int(row['wine_id']))
             #음식 데이터셋 3번 넣고 지우니까 id 71 * 3개 밀려서 213 더해놨음 db.sqlite3 파일 삭제 후 다시 진행시 213 지울 것
-            food = Food.objects.get(id=(int(row['food_id'])+213))
+            #2021-08-03 23:00 기준 형래 데이터 쓰니까 리셋되서 213 지웠음
+            food = Food.objects.get(id=(int(row['food_id'])))
             food.wines.add(wine)
             food.save()
     print("음식와인연결 성공!")
+
+def fix_WR():
+    CSV_PATH = os.path.join(BASE_DIR,"../data/fooddata.csv")
+    with open(CSV_PATH, newline='') as csvfile:
+        data_reader = csv.DictReader(csvfile)
+        for row in data_reader:
+            food = Food.objects.get(id = (int(row['\ufeffid'])))
+            food.location = row['type']
+            food.save()
+    print("세계음식 바꾸는거 성공!")
+
 
 # insert_wine()
 # insert_food()
