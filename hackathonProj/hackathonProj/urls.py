@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from hackathonApp.views import *
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('',main,name='main'),
+    # path('datas/',insert_data,name= 'insert_data')   //DB 입력이 끝나서 주석처리해둠. db.sqlite3 파일을 지우지 않는한 활성화 시키지 말 것
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
