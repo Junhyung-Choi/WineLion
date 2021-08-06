@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% csrf_token %}
+    {{ wine.name }}
+    {{ wine.kind }}
+    {{ wine.country }}
+    {{ wine.price }}
+    {{ wine.grape_type1 }}
+    {{ wine.grape_type2 }}
+    {{ wine.explain }}
+    {{ wine.taste1 }}
+    {{ wine.taste2 }}
+    {{ wine.alchol }}
+    {{ wine.dry }}
+    {{ wine.body }}
+    {{ wine.tannin }}
+    {{ food }}
+    <br>
+    {{ reviews }}
+    {{ reviews.0 }}
+    {{ reviews.0.write_time }}
+    {{ reviews.0.last_modified_time }}
+    {{ reviews.0.star }}
+    {{ reviews.0.body }}
+
+</body>
+</html>

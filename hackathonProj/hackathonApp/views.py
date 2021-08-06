@@ -4,10 +4,16 @@ from django.shortcuts import redirect, render
 # Create your views here.
 def main(request):
     context = {
-        "wine":Wine.objects.get(id = 1),
-        "food":Food.objects.get_queryset()[0].id
+        "wines": Wine.objects.all(),
     }
-    return render(request,'practice.html',context)
+    return render(request,'main.html',context)
+
+def wine_info(request,id):
+    context = {
+        "wine": Wine.objects.get(id = id),
+        "reviews": Review.objects.filter(referring_wine_id = id)
+    }
+    return render(request,'wine_info.html',context)
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
