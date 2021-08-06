@@ -1,3 +1,8 @@
+html {
+  font-family: rixstraight-pro, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
 .navbar {
     display: flex;
     flex-direction: row;

@@ -1,32 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>No.1 와인추천서비스 - 와인 먹을래?</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script type="text/javascript" src="js/script.js"></script>
-
-    
-    <style>
-        html {
-            font-family: rixstraight-pro, sans-serif;
-            font-weight: 500;
-            font-style: normal;
-        }
-    </style>
-
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
     <nav class="navbar">
-        <div class="navBox1"><img src="img/로고.jpg"> </div>
+        <div class="navBox1"><img src="{% static 'img/로고.jpg' %}"> </div>
         <div class="navBox2"></div>
         <div class="navBox3">
-            <div class="navItem"><a class="aTag"><img src="img/search.png" width="30px" height="30px"></a></div>
-            <div class="navItem"><a class="aTag"><img src="img/cart.png" width="30px" height="30px"></a></div>
-            <div class="navItem"><a class="aTag"><img src="img/mypage.png" width="30px" height="30px"></a></div>
+            <div class="navItem"><a class="aTag"><img src="{% static 'img/search.png' %}" width="30px" height="30px"></a></div>
+            <div class="navItem"><a class="aTag"><img src="{% static 'img/cart.png' %}" width="30px" height="30px"></a></div>
+            <div class="navItem"><a class="aTag"><img src="{% static 'img/mypage.png' %}" width="30px" height="30px"></a></div>
             <div class="navItem"><a class="aTag">로그인</a></div>
         </div>
     </nav>
@@ -94,37 +85,37 @@
             <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
               <div class="swiper-slide swiper-slide-active" style="margin-right: 16px;">
                 <a>
-                  <img src="./img/와인가이ㅡㄷ.png">
+                  <img src="{% static 'img/와인가이ㅡㄷ.png'%}">
                   <span>와인 가이드</span>
                 </a>
               </div>
               <div class="swiper-slide swiper-slide-next" style="margin-right: 16px;">
                 <a>
-                  <img src="./img/선물하ㅣㄱ.png">
+                  <img src="{% static 'img/선물하ㅣㄱ.png'%}">
                   <span>선물하기</span>
                 </a>
               </div>
               <div class="swiper-slide" style="margin-right: 16px;">
                 <a>
-                  <img src="./img/회원특가.png">
+                  <img src="{% static 'img/회원특가.png' %}">
                   <span>회원 특가</span>
                 </a>
               </div>
               <div class="swiper-slide" style="margin-right: 16px;">
                 <a>
-                  <img src="./img/와인스토리.png">
+                  <img src="{% static 'img/와인스토리.png' %}">
                   <span>와인 스토리</span>
                 </a>
               </div>
               <div class="swiper-slide" style="margin-right: 16px;">
                 <a>
-                  <img src="./img/할인매장.png">
+                  <img src="{% static 'img/할인매장.png' %}">
                   <span>할인 매장</span>
                 </a>
               </div>
               <div class="swiper-slide swiper-slide-next" style="margin-right: 16px;">
                 <a>
-                  <img src="./img/와인리뷰.png">
+                  <img src="{% static 'img/와인리뷰.png' %}">
                   <span>와인 리뷰</span>
                 </a>
               </div>
@@ -153,7 +144,7 @@
             <div class="xans-eelement- xans-product xans-product-listmain-1 xans-product-listmain xans-product-1 swiper-wrapper">
               <div class="swiper-slide deps_01 col_product sans-record-">
                 <div class="thumbnail">
-                  <a><img src="./img/와인이미지.jpg" class="thumb img_link"></a>
+                  <a><img src="{% static 'img/와인이미지.jpg' %}" class="thumb img_link"></a>
                   <br>
                 </div>
                 <div class="description">
@@ -166,7 +157,7 @@
               
               <div class="swiper-slide deps_02 col_product sans-record-">
                 <div class="thumbnail">
-                  <a><img src="./img/와인이미지.jpg" class="thumb img_link"></a>
+                  <a><img src="{% static 'img/와인이미지.jpg' %}" class="thumb img_link"></a>
                   <br>
                 </div>
                 <div class="description">
@@ -178,7 +169,7 @@
 
               <div class="swiper-slide deps_02 col_product sans-record-">
                 <div class="thumbnail">
-                  <a><img src="./img/와인이미지.jpg" class="thumb img_link"></a>
+                  <a><img src="{% static 'img/와인이미지.jpg' %}" class="thumb img_link"></a>
                   <br>
                 </div>
                 <div class="description">
@@ -190,7 +181,7 @@
 
               <div class="swiper-slide deps_02 col_product sans-record-">
                 <div class="thumbnail">
-                  <a><img src="./img/와인이미지.jpg" class="thumb img_link"></a>
+                  <a><img src="{% static 'img/와인이미지.jpg' %}" class="thumb img_link"></a>
                   <br>
                 </div>
                 <div class="description">
@@ -202,7 +193,7 @@
 
               <div class="swiper-slide deps_02 col_product sans-record-">
                 <div class="thumbnail">
-                  <a><img src="./img/와인이미지.jpg" class="thumb img_link"></a>
+                  <a><img src="{% static 'img/와인이미지.jpg' %}" class="thumb img_link"></a>
                   <br>
                 </div>
                 <div class="description">
