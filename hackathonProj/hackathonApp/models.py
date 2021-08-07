@@ -50,8 +50,15 @@ class CustomUser(AbstractUser):
         ('G','Gold'),
         ('V','VIP'),
     )
+    Gender = (
+        ('F','Female'),
+        ('M','Male'),
+    )
     grade = models.CharField("유저등급", max_length=10, choices=USER_GRADE, default='S')
     register_date = models.DateTimeField("가입일시",auto_now_add=True)
+    birth = models.DateField("생년월일", null=True, blank=True)
+    gender = models.CharField("성별", max_length=10, choices=Gender, default='F')
+
 
 class Food(models.Model):
     name = models.CharField( max_length=50)
