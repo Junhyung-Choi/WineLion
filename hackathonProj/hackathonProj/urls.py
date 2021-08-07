@@ -27,6 +27,7 @@ urlpatterns = [
     path('login/', login_view, name = "login"),
     path('logout/', logout_view, name = "logout"),
     path('base/', base, name = "base"),
+    path('signup/', signup, name = "signup"),
     #   path('datas/',insert_data,name= 'insert_data')   # //DB 입력이 끝나서 주석처리해둠. db.sqlite3 파일을 지우지 않는한 활성화 시키지 말 것
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
