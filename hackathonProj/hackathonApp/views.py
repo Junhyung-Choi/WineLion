@@ -82,6 +82,9 @@ def mypage(request):
 def food_recommend(request):
     return render(request, 'recommend.html')
 
+def practice(request):
+    return render(request,'side.html')
+
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
