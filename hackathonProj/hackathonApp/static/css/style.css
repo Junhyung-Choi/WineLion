@@ -435,6 +435,7 @@ fieldset {
 
 .row {
   padding: 20px;
+  height: 400px;
 }
 
 .active,
