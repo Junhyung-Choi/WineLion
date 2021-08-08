@@ -32,7 +32,7 @@ def login_view(request):
             return redirect("main")
         else:
             form = AuthenticationForm()
-            return render(request, 'login.html', {'form': form, "message" : "다시 한번 입력해주세요"})    
+            return render(request, 'login.html', {'form': form, "message" : "회원정보를 확인해주세요."})    
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
@@ -61,7 +61,8 @@ def signup(request):
     return render(request, 'signup.html', {'form': form}) #4
 
 def mypage(request):
-    return render(request,'memeber.html')
+    return render(request,'member.html')
+
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
@@ -78,5 +79,3 @@ def insert_data(request):
     #insert_wine2food()
     #fix_WR()
     return redirect('main')
-
-

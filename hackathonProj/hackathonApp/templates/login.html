@@ -4,7 +4,8 @@
 {% block content %}
   <div style="margin-top : 5%; " class="text-center">
     <script>
-      alert("{{ message }}")
+      if ("{{message}}" != "")
+        alert("{{ message }}")
     </script>
     <h1>
       로그인
