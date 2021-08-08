@@ -14,10 +14,17 @@ def main(request):
     return render(request,'main.html',context)
 
 def wine_info(request,id):
+    obj = Wine.objects.get(id = id)
+    body = (int(obj.body)-1)//2 + 1
+    tannin = (int(obj.tannin)-1)//2 + 1
+    dry = (int(obj.dry)-1)//2 + 1
     context = {
         "wine": Wine.objects.get(id = id),
         "reviews": Review.objects.filter(referring_wine_id = id),
         "pic": "/static/img/list/num"+str(id)+".jpg",
+        "body": "/static/img/score/score"+str(body)+".png",
+        "tannin" : "/static/img/score/score"+str(tannin)+".png",
+        "dry" : "/static/img/score/score"+str(dry)+".png",
     }
     return render(request,'riview.html',context)
 

@@ -132,7 +132,7 @@ td,th {
     margin-right:10px;
 }
 .winetaste > img {
-    width: 80px;
+    /* width: 80px; */
     height: 40px;
 }
 .review {
