@@ -129,7 +129,7 @@ html {
 .image6 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/스파클링\1.jpg);
+  background-image: url(../img/스파클링.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -197,7 +197,7 @@ html {
 
 .active,
 .dot:hover {
-  background-color: #717171;
+  background-color: #818181;
 }
 
 /* Fading animation */
@@ -279,6 +279,7 @@ img {
   z-index: 1;
   display: flex;
   box-sizing: content-box;
+  padding-top: 15px;
 }
 .Hashtag .swiper-slide {
   width: 10%;
@@ -355,7 +356,7 @@ div {
   height: 285px;
 }
 .bg_row {
-  background: #fae8e8;
+  background: #f9f9f9;
 }
 .preorder_row2 {
   max-width: 1220px;
@@ -435,4 +436,13 @@ fieldset {
 
 .row {
   padding: 20px;
+}
+
+.active,
+.carousel-item {
+  background-color: rgb(161, 161, 161) !important;
+}
+
+.fade:not(.show) {
+  opacity: 1;
 }

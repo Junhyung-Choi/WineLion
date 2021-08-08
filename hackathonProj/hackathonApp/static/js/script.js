@@ -1,18 +1,5 @@
-var slideIndex = 0; //slide index
-
-// HTML 로드가 끝난 후 동작
-window.onload=function(){
-  showSlides(slideIndex);
-
-  // Auto Move Slide
-  var sec = 5000;
-  setInterval(function(){
-    slideIndex++;
-    showSlides(slideIndex);
-
-  }, sec);
-}
-
+var slideIndex = 6; //slide index
+var timer;
 
 // Next/previous controls
 function moveSlides(n) {
@@ -32,21 +19,33 @@ function showSlides(n) {
   var dots = document.getElementsByClassName("dot");
   var size = slides.length;
 
-  if ((n+1) > size) {
+  if ((n + 1) > size) {
     slideIndex = 0; n = 0;
-  }else if (n < 0) {
-    slideIndex = (size-1);
-    n = (size-1);
+  } else if (n < 0) {
+    slideIndex = (size - 1);
+    n = (size - 1);
   }
 
   for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].className.replace(" active", "");
   }
 
   slides[n].style.display = "block";
   dots[n].className += " active";
+  var sec = 1000 * 5;
+  clearInterval(timer);
+  timer = setInterval(function () {
+    slideIndex++;
+    showSlides(slideIndex);
+  }, sec)
 }
 
+
+// HTML 로드가 끝난 후 동작
+window.onload = function () {
+  showSlides(slideIndex);
+  // Auto Move Slide
+}
