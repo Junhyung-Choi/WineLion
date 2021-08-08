@@ -16,7 +16,8 @@ def main(request):
 def wine_info(request,id):
     context = {
         "wine": Wine.objects.get(id = id),
-        "reviews": Review.objects.filter(referring_wine_id = id)
+        "reviews": Review.objects.filter(referring_wine_id = id),
+        "pic": "/static/img/list/num"+str(id)+".jpg",
     }
     return render(request,'riview.html',context)
 
