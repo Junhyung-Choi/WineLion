@@ -56,7 +56,7 @@
           <img src="{{dry}}">
         </div>
         <div class="winetaste">
-          <span style="margin-left:10px; font-weight:bold" ">Body</span>
+          <span style="margin-left:10px; font-weight:bold">Body</span>
           <img src="{{body}}">
         </div>
         <div class="winetaste">
@@ -65,13 +65,39 @@
         </div>
       </div>
       <div class="subcontent2">
+      <style>
+        .star-rating{
+            width:205px;
+        }
+        .star-rating,.star-rating span{
+            display:inline-block;
+            height:39px;
+            overflow:hidden;
+            background:url(../../static/img/score/star.png)no-repeat;
+        }
+        .star-rating span{
+            background-position:left bottom;
+            line-height:0;
+            vertical-align:top;
+        }
+      </style>
         <div class="review">
-          <span>평점</span>
-          <img src="{% static 'img/rimg/Score4.png' %}">
+            <span style="font-weight:bold">평점</span>
+          <span class='star-rating'>
+          <span style="width:{{star_percent}}"></span>
+          </span>
+          
+          {% comment %} <img src="{% static 'img/rimg/Score4.png' %}"> {% endcomment %}
         </div>
       </div>
       <div class="subcontent">
-        여기는 리뷰작성~
+      {{review}}
+      {% for review in reviews  %}
+        {{review}}
+        {{review.star}}
+        {{review.body}}
+        <br>
+      {% endfor %}
       </div>
     </div>
   </div>
