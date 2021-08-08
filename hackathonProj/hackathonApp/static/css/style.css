@@ -94,42 +94,42 @@ html {
 .image1 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/와인2.jpg);
+  background-image: url(../img/wine2.jpg);
   background-size: cover;
   background-position: center;
 }
 .image2 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/음식.jpg);
+  background-image: url(../img/food.jpg);
   background-size: cover;
   background-position: center;
 }
 .image3 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/와인.jpg);
+  background-image: url(../img/wine.jpg);
   background-size: cover;
   background-position: center;
 }
 .image4 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/짠.jpg);
+  background-image: url(../img/cheer.jpg);
   background-size: cover;
   background-position: center;
 }
 .image5 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/포도.jpg);
+  background-image: url(../img/grape.jpg);
   background-size: cover;
   background-position: center;
 }
 .image6 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/스파클링.jpg);
+  background-image: url(../img/sparkling.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -442,7 +442,6 @@ fieldset {
   background-color: rgba(214, 204, 190, 0.993) !important;
 }
 
-
 /* footer */
 #footer {
   position: relative;
@@ -451,7 +450,7 @@ fieldset {
 #footer .inner {
   overflow: hidden;
   position: relative;
-  width: 1220px!important;
+  width: 1220px !important;
   margin: 0 auto;
 }
 .footer_menu ul.menu {
