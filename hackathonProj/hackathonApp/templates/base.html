@@ -1,35 +1,49 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <title>No.1 와인추천서비스 - 와인 먹을래?</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
     <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-</head>
-<body>
-    <nav class="navbar" style = "margin-top : 0%">
-        <div class="navBox1"><img src="{% static 'img/logo.jpg' %}"> </div>
-        <div class="navBox2"></div>
-        <div class="navBox3">
-            <div class="navItem"><a href = class="aTag"><img src="{% static 'img/search.png' %}" width="30px" height="30px"></a></div>
-            <div class="navItem"><a class="aTag"><img src="{% static 'img/mypage.png' %}" width="30px" height="30px"></a></div>
-            {% if user.is_authenticated %}
-                <div class ="navItem">{{user.username}}님 환영합니다.</div>
-                <div class="navItem"><a href = "{% url 'logout' %}"" class="aTag">로그아웃</a></div>
-            {% else %}
-                <div class="navItem"><a href = "{% url 'login' %}" class="aTag">로그인</a></div>
-            {% endif %}
+  </head>
+
+  <body>
+    <nav class="navbar" style="margin-top: 0%">
+      <div class="navBox1"><img src="{% static 'img/logo.jpg' %}"/></div>
+      <div class="navBox2"></div>
+      <div class="navBox3">
+        <div class="navItem">
+          <a href="class" ="aTag"><img src="{% static 'img/search.png' %}" width="30px" height="30px"/></a>
         </div>
+        <div class="navItem">
+          <a class="aTag"><img src="{% static 'img/mypage.png' %}" width="30px" height="30px"/></a>
+        </div>
+        {% if user.is_authenticated %}
+          <div class="navItem">{{user.username}}님 환영합니다.</div>
+          <div class="navItem">
+            <a href="{% url 'logout' %}" class="aTag">
+              로그아웃
+            </a>
+          </div>
+        {% else %}
+          <div class="navItem">
+            <a href="{% url 'login' %}" class="aTag">
+              로그인
+            </a>
+          </div>
+        {% endif %}
+      </div>
     </nav>
-    
+
     <div class="line"></div>
-    {% block content %}
-    {% endblock content %}
+    {% block content %}{% endblock content %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-</body>
+  </body>
+
 </html>

@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+  </head>
+
+  <body>
     {% if form.errors %}
-    <p style="color:red;">양식에 맞게 작성해주세요.</p>
+      <p style="color:red;">양식에 맞게 작성해주세요.</p>
     {% endif %}
 
     <!-- #2 -->
     <form method="post" action="{% url 'signup' %}">
-    <!-- #3 -->
-    {% csrf_token %} 
+      <!-- #3 -->
+      {% csrf_token %}
 
-    <!-- #4 -->
-    {{form.as_p}}
+      <!-- #4 -->
+      {{form.as_p}}
 
-    <button type="submit"> 가입하기 </button>
+      <button type="submit">
+        가입하기
+      </button>
     </form>
-</body>
+  </body>
+
 </html>
