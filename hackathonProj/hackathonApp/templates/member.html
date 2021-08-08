@@ -7,6 +7,7 @@
       마이페이지
     </h1>
       {% csrf_token %}
+      {% if user.is_active %}
         <div class="form-group" style="margin:20px; text-align: left">
           <label for="user.username" style="margin-bottom: 5px">username</label>
           <h3 class="form-control b4-col">{{user.username}}</h3>
@@ -19,6 +20,9 @@
           <label for="user.username" style="margin-bottom: 5px">gender</label>
           <h3 class="form-control b4-col">{{user.gender}}</h3>
         </div>
+      {% else %}
+        <h1 style="margin:20px">로그인 해주세요.</h1>
+      {% endif %}
   </div>
 {% endblock content %}
 
