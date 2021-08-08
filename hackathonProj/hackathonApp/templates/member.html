@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div style="margin-top : 5%; " class="text-center">
+    <h1>
+      마이페이지
+    </h1>
+      {% csrf_token %}
+        <div class="form-group" style="margin:20px; text-align: left">
+          <label for="user.username" style="margin-bottom: 5px">username</label>
+          <h3 class="form-control b4-col">{{user.username}}</h3>
+          <label for="user.username" style="margin-bottom: 5px">email</label>
+          <h3 class="form-control b4-col">{{user.email}}</h3>
+          <label for="user.username" style="margin-bottom: 5px">grade</label>
+          <h3 class="form-control b4-col">{{user.grade}}</h3>
+          <label for="user.username" style="margin-bottom: 5px">birth</label>
+          <h3 class="form-control b4-col">{{user.birth}}</h3>
+          <label for="user.username" style="margin-bottom: 5px">gender</label>
+          <h3 class="form-control b4-col">{{user.gender}}</h3>
+        </div>
+  </div>
+{% endblock content %}
+
+
+    
