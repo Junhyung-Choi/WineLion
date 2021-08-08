@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-  <link href="{% static 'css/bootstrap.min.css' %}" rel='stylesheet'>
-  <link href="{% static 'css/font-awesome.min.css' %}" rel='stylesheet'>
-  <link href="{% static 'css/prettyPhoto.css' %}" rel='stylesheet'>
-  <link href="{% static 'css/price-range.css' %}" rel='stylesheet'>
-  <link href="{% static 'css/animate.css' %}" rel='stylesheet'>
-  <link href="{% static 'css/main.css' %}" rel='stylesheet'>
-  <link href="{% static 'css/responsive.css' %}" rel='stylesheet'>
-  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
   <div class="slideshow-container">
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
@@ -107,110 +99,115 @@
     </div>
   </div>
   <div class="recommended_items">
-    <!--recommended_items-->
-    <h2 class="title text-center">recommended items</h2>
-
-    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+    <div id="recommand-items-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#recommand-items-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#recommand-items-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
       <div class="carousel-inner">
-        <div class="item active">
-          <div class="col-sm-4">
-            <div class="product-image-wrapper">
-              <div class="single-products">
-                <div class="productinfo text-center">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
 
-                  <img src="{% static 'img/list/num1.jpg' %}" alt="" style="width : 20%; height : 20%"/>
-                  <h2>$56</h2>
-                  <p>Easy Polo Black Edition</p>
-                  <a href="#" class="btn btn-default add-to-cart">
-                    <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    <img src="{% static 'img/list/num1.jpg' %}" alt="" style="width : 20%; height : 20%"/>
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart">
+                      <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
+
                 </div>
-
               </div>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="product-image-wrapper">
-              <div class="single-products">
-                <div class="productinfo text-center">
-                  <img src="{% static 'img/list/num2.jpg' %}" alt="" style="width : 20%; height : 20%"/>
-                  <h2>$56</h2>
-                  <p>Easy Polo Black Edition</p>
-                  <a href="#" class="btn btn-default add-to-cart">
-                    <i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </div>
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <img src="{% static 'img/list/num2.jpg' %}" alt="" style="width : 20%; height : 20%"/>
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart">
+                      <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
 
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="product-image-wrapper">
-              <div class="single-products">
-                <div class="productinfo text-center">
-                  <img src="{% static 'img/list/num3.jpg' %}" alt="" style="width : 20%; height : 20%"/>
-                  <h2>$56</h2>
-                  <p>Easy Polo Black Edition</p>
-                  <a href="#" class="btn btn-default add-to-cart">
-                    <i class="fa fa-shopping-cart"></i>Add to cart</a>
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <img src="{% static 'img/list/num3.jpg' %}" alt="" style="width : 20%; height : 20%"/>
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart">
+                      <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="col-sm-4">
-            <div class="product-image-wrapper">
-              <div class="single-products">
-                <div class="productinfo text-center">
-                  <img src="{% static 'img/list/num4.jpg' %}" alt="" style="width : 20%; height : 20%"/>
-                  <h2>$56</h2>
-                  <p>Easy Polo Black Edition</p>
-                  <a href="#" class="btn btn-default add-to-cart">
-                    <i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <img src="{% static 'img/list/num4.jpg' %}" alt="" style="width : 20%; height : 20%"/>
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart">
+                      <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
 
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="product-image-wrapper">
-              <div class="single-products">
-                <div class="productinfo text-center">
-                  <img src="{% static 'img/list/num5.jpg' %}" alt="" style="width : 20%; height : 20%"/>
-                  <h2>$56</h2>
-                  <p>Easy Polo Black Edition</p>
-                  <a href="#" class="btn btn-default add-to-cart">
-                    <i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </div>
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <img src="{% static 'img/list/num5.jpg' %}" alt="" style="width : 20%; height : 20%"/>
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart">
+                      <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
 
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="product-image-wrapper">
-              <div class="single-products">
-                <div class="productinfo text-center">
-                  <img src="{% static 'img/list/num6.jpg' %}" alt="" style="width : 20%; height : 20%"/>
-                  <h2>$56</h2>
-                  <p>Easy Polo Black Edition</p>
-                  <a href="#" class="btn btn-default add-to-cart">
-                    <i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </div>
+            <div class="col-sm-4">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <img src="{% static 'img/list/num6.jpg' %}" alt="" style="width : 20%; height : 20%"/>
+                    <h2>$56</h2>
+                    <p>Easy Polo Black Edition</p>
+                    <a href="#" class="btn btn-default add-to-cart">
+                      <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                  </div>
 
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-        <i class="fa fa-angle-left"></i>
-      </a>
-      <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-        <i class="fa fa-angle-right"></i>
-      </a>
+      <button class="carousel-control-prev" type="button" data-bs-target="#recommand-items-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#recommand-items-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
-  <!--/recommended_items-->
 
   <div class="bg_row">
     <div class="preorder_row2">
@@ -310,10 +307,4 @@
       </div>
     </div>
   </div>
-  <script src="{% static 'js/jquery.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-  <script src="{% static 'js/price-range.js' %}"></script>
-  <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
 {% endblock content %}
