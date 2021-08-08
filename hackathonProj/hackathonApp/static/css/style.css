@@ -101,7 +101,7 @@ html {
 .image2 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/food.jpg);
+  background-image: url(../img/pairing.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -226,7 +226,7 @@ html {
 }
 
 .Hashtag {
-  padding: 35px 0px 10px 0px;
+  padding: 0px 0px 40px 0px;
   max-width: 1280px;
   overflow: hidden;
   margin: 0 auto !important;
