@@ -133,6 +133,8 @@ html {
   background-size: cover;
   background-position: center;
 }
+
+
 /* Next & previous buttons */
 .prev,
 .next {
@@ -435,6 +437,7 @@ fieldset {
 
 .row {
   padding: 20px;
+  height: 300px;
 }
 
 .active,
