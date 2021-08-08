@@ -102,13 +102,16 @@ def fix_WR():
     print("세계음식 바꾸는거 성공!")
 
 def fix_Wine():
-    CSV_PATH = os.path.join(BASE_DIR,"../data/windedata.csv")
+    CSV_PATH = os.path.join(BASE_DIR,"../data/winedata.csv")
     with open(CSV_PATH, newline='') as csvfile:
         data_reader = csv.DictReader(csvfile)
         for row in data_reader:
-            # print(row)
+            print(row)
             wine = Wine.objects.get(id = int(row['\ufeffid']))
-            wine.grape_kind2 = row['grape_kind2']
+            if row['grape_kind2'] == "NULL":
+                wine.grape_type2 = "";
+            else:
+                wine.grape_type2 = row['grape_kind2']
             wine.save()
     print("와인 데이터 바꾸는거 성공!")
 
