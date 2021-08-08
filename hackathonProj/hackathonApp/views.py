@@ -81,4 +81,5 @@ def insert_data(request):
     #insert_review()
     #insert_wine2food()
     #fix_WR()
+    fix_Wine()
     return redirect('main')
