@@ -21,12 +21,12 @@
         <div class="navItem">
           <a href="class" ="aTag"><img src="{% static 'img/search.png' %}" width="30px" height="30px"/></a>
         </div>
-        <div class="navItem">
-          <a class="aTag"><img src="{% static 'img/mypage.png' %}" width="30px" height="30px"/></a>
-        </div>
         {% if user.is_authenticated %}
-          <div class="navItem">{{user.username}}님 환영합니다.</div>
           <div class="navItem">
+            <img src="{% static 'img/mypage.png' %}" width="30px" height="30px"/>
+            <a href="{% url 'mypage' %}" class="aTag">{{user.username}}님 환영합니다.</a>
+          </div>
+          <div class="navItem" style="padding-bottom: 20px">
             <a href="{% url 'logout' %}" class="aTag">
               로그아웃
             </a>

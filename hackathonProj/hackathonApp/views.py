@@ -60,7 +60,8 @@ def signup(request):
 
     return render(request, 'signup.html', {'form': form}) #4
 
-
+def mypage(request):
+    return render(request,'memeber.html')
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
