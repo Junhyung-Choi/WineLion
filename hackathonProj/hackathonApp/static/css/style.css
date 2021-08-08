@@ -129,7 +129,7 @@ html {
 .image6 {
   width: 1000px;
   height: 500px;
-  background-image: url(../img/스파클링\1.jpg);
+  background-image: url(../img/스파클링.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -502,4 +502,7 @@ fieldset {
   background: #525252;
   margin: 0 10px;
   vertical-align: middle;
+}
+.fade:not(.show) {
+  opacity: 1;
 }

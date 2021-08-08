@@ -10,7 +10,7 @@ class Wine(models.Model):
     country = models.CharField( max_length=50)
     price = models.IntegerField()
     grape_type1= models.CharField(max_length=50)
-    grape_type2= models.CharField(max_length=50)
+    grape_type2= models.CharField(max_length=50, null = True)
     explain = models.CharField(max_length=200)
     taste1 = models.CharField(max_length=50)
     taste2 = models.CharField(max_length=50)

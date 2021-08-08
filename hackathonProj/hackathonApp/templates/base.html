@@ -11,41 +11,36 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"/>
     <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    {% comment %} <link href="{% static 'css/bootstrap.min.css' %}" rel='stylesheet'> {% endcomment %}
-    {% comment %} <link href="{% static 'css/font-awesome.min.css' %}" rel='stylesheet'>
-    <link href="{% static 'css/prettyPhoto.css' %}" rel='stylesheet'>
-    <link href="{% static 'css/price-range.css' %}" rel='stylesheet'>
-    <link href="{% static 'css/animate.css' %}" rel='stylesheet'>{% endcomment %}
     <link href="{% static 'css/main.css' %}" rel='stylesheet'>
-    {% comment %} <link href="{% static 'css/responsive.css' %}" rel='stylesheet'> {% endcomment %}
-  
   </head>
 
   <body>
     <nav class="navbar" style="margin-top: 0%">
-      <div class="navBox1"><a href={% url 'main' %}><img  src="{% static 'img/logo.jpg' %}"/></a></div>
+      <div class="navBox1">
+        <a href="{% url 'main' %}"><img src="{% static 'img/logo.jpg' %}"/></a>
+      </div>
       <div class="navBox2"></div>
       <div class="navBox3">
         <div class="navItem">
           <a href="class" ="aTag"><img src="{% static 'img/search.png' %}" width="30px" height="30px"/></a>
         </div>
         <style>
-            #button:hover{
-            border: 0px solid black;
-            }
+          #button:hover {
+            border: 0 solid black;
+          }
         </style>
         {% if user.is_authenticated %}
           <div class="navItem">
             <img src="{% static 'img/mypage.png' %}" width="30px" height="30px"/>
             <a href="{% url 'mypage' %}" class="aTag">{{user.username}}님 환영합니다.</a>
           </div>
-          <div class="navItem" id = 'button'>
+          <div class="navItem" id='button'>
             <a href="{% url 'logout' %}" class="btn btn-outline-primary aTag">
               로그아웃
             </a>
           </div>
         {% else %}
-          <div class="navItem" id = 'button'>
+          <div class="navItem" id='button'>
             <a href="{% url 'login' %}" class="btn btn-outline-primary aTag">
               로그인
             </a>

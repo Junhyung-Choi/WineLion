@@ -18,7 +18,7 @@ def wine_info(request,id):
         "wine": Wine.objects.get(id = id),
         "reviews": Review.objects.filter(referring_wine_id = id)
     }
-    return render(request,'wine_info.html',context)
+    return render(request,'riview.html',context)
 
 def login_view(request):
     if request.method == "POST":
@@ -81,4 +81,5 @@ def insert_data(request):
     #insert_review()
     #insert_wine2food()
     #fix_WR()
+    fix_Wine()
     return redirect('main')

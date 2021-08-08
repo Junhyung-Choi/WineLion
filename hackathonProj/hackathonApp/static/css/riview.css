@@ -69,93 +69,81 @@ html {
     font-size: 0px;
     line-height: 0px;
 }
-/* 폰트
-h1,h2,h3,h4,h5,h6,p,form,ol,input,a {
-    font-family:'Cute Font' !important;
+/* 폰트 */
+/* h1,h2,h3,h4,h5,h6,p,form,ol,input,a,span,th,td {
+    font-family:'Cute Font', cursive;
     font-size: 20px;
     font-weight: 700;
     text-decoration: none;
 } */
-.search{
+.structure {
     display:flex;
     align-items: center;
+    margin: 100px;
 }
-.search > div > h3 {
-    margin-left:50px;
-}
-.foodsearch{
-    border:2px;
-}
-.foodsearch > input{
-    margin-left:20px;
-    font-size: 16px;
-    width: 225px;
-    padding: 10px;
-    float: left;
-}
-.foodsearch > button{
-    width: 50px;
-    height: 43.84px;
-    border: 2px;
-    background-color: lightgrey;
-    outline: none;
-    float: right;
-    color: black;
-}
-.category { 
-    margin-left: 50px;
-    margin-right: 50px;
-    display: flex;
-    justify-content: space-between;
-}
-.subcategory {
-    align-items: center;
-}
-form {
-    background-color:lightgrey;
-    text-align: center;
-    display:flex;
-}
-form:hover {
-    background-color:lightslategray;
-}
-/* menu css */
-.menu{
+.content {
+    flex:1;
     display:flex;
     flex-direction:column;
-    flex-wrap:wrap;
-    align-items:center;
-    height:960px;
 }
-.submenu{
-    display:flex;
-    align-items:center;
+.content > img {
     height:300px;
     width:300px;
 }
-.menutype{
-    background-color: beige;
-    flex:1;
+.subcontent {
+    border-bottom:solid 1px lightgray;
+    display:flex;
+    align-items: center;
+    padding:10px;
 }
-.menutype > div > img {
-    width:150px;
-    height:150px;
-    border-radius:20px;
+.subcontent2 {
+    border-bottom:solid 1px lightgray;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px;
 }
-.menutype > h4,h3,ol,div {
-    text-align:center;  
+.winetype,.winecountry {
+    display:flex;
+    align-items: center;
 }
-.menutype > h3 {
+.winetype {
+    margin-right: 20px;
+}
+.winetype > img { 
+    height:20px;
+    width:20px;
+    border-radius: 3px;
+}
+.winecountry > img {  
+    height:30px;
+    width:30px;
+    border-radius: 3px;
+}
+td,th {
     font-size:16px;
 }
-.winetype{
+.winetaste {
     display:flex;
-    flex-direction:column;
-    
+    align-items: center;
 }
-.winetype > li > div {
-    margin-bottom:20px;
+.winetaste > span {
+    font-size:14px;
+    margin-right:10px;
 }
-.winetype > ol > li,div > a {
-    cursor: pointer;
+.winetaste > img {
+    width: 80px;
+    height: 40px;
+}
+.review {
+    display:flex;
+    align-items: center;
+
+}
+.review > img {
+    width: 200px;
+    height: 60px;
+}
+.review > span {
+    margin-right:30px;
 }
