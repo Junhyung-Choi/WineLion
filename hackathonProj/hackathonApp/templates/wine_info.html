@@ -10,8 +10,6 @@
 
   <body>
     {% csrf_token %}
-    hi
-    {{ wine }}
     {{ wine.name }}
     {{ wine.kind }}
     {{ wine.country }}
@@ -27,7 +25,12 @@
     {{ wine.tannin }}
     {{ food }}
     <br>
-    {{ wines.0.name }}
+    {{ reviews }}
+    {{ reviews.0 }}
+    {{ reviews.0.write_time }}
+    {{ reviews.0.last_modified_time }}
+    {{ reviews.0.star }}
+    {{ reviews.0.body }}
   </body>
 
 </html>

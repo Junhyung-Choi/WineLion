@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div style="margin-top : 5%; " class="text-center">
+    <script>
+      if ("{{message}}" != "")
+        alert("{{ message }}")
+    </script>
+    <h1>
+      로그인
+    </h1>
+
+    <form class="col-4" action="{% url 'login' %}" style="margin: 0 auto" method='POST'>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group" style="margin:20px; text-align: left">
+          <label for="{{field.id_for_label}}" style="margin-bottom: 5px">{{field.label}}</label>
+          <input type="{{field.field.widget.input_type}}" class="form-control b4-col" id="{{field.id_for_label}}" placeholder="{{field.label}}" name="{{field.name}}">
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-outline-primary">로그인</button>
+    </form>
+  </div>
+{% endblock content %}
