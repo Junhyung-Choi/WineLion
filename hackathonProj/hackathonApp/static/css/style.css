@@ -442,3 +442,64 @@ fieldset {
 .carousel-item {
   background-color: rgb(161, 161, 161) !important;
 }
+
+
+/* footer */
+#footer {
+  position: relative;
+  background: #c0bebe;
+}
+#footer .inner {
+  overflow: hidden;
+  position: relative;
+  width: 1220px!important;
+  margin: 0 auto;
+}
+.footer_menu ul.menu {
+  padding: 36px 14px 10px;
+  display: inline-block;
+  align-content: center;
+}
+.footer_menu ul.menu li {
+  display: inline-block;
+  padding: 0px 46px 0 0;
+}
+.footer_menu .footerSNS {
+  float: right;
+}
+.footer_menu .footerSNS .policy li {
+  display: inline-block;
+  margin: 37px 30px 0 0;
+}
+.footer_menu .footerSNS .policy li:last-child {
+  margin: 37px 0 0 0;
+}
+.xans-layout-footer {
+  padding: 45px 14px;
+  position: relative;
+  text-align: center;
+}
+.xans-layout-footer .call {
+  font-size: 14px;
+  letter-spacing: -0.6px;
+}
+.xans-layout-footer .call {
+  font-size: 14px;
+  letter-spacing: -0.6px;
+}
+.xans-layout-footer .address {
+  padding: 16px 0 0;
+  line-height: 18px;
+}
+.xans-layout-footer .address2 {
+  padding: 20px 0 0;
+  line-height: 18px;
+}
+.xans-layout-footer .address2 span.footer_bar {
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  background: #525252;
+  margin: 0 10px;
+  vertical-align: middle;
+}
