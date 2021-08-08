@@ -481,7 +481,11 @@ fieldset {
 
 .active,
 .carousel-item {
+
   background-color: rgb(255, 255, 255) !important;
+
+  background-color: #ffffff !important;
+
 }
 
 /* footer */
