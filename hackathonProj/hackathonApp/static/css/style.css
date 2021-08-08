@@ -440,7 +440,10 @@ fieldset {
 
 .active,
 .carousel-item {
-  background-color: rgb(161, 161, 161) !important;
+  background-color: rgba(214, 204, 190, 0.993) !important;
+  max-width: 1220px;
+  overflow: hidden;
+  margin: 0 auto !important;
 }
 
 
