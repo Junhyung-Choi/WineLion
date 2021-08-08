@@ -197,7 +197,7 @@ html {
 
 .active,
 .dot:hover {
-  background-color: #717171;
+  background-color: #818181;
 }
 
 /* Fading animation */
@@ -436,4 +436,9 @@ fieldset {
 
 .row {
   padding: 20px;
+}
+
+.active,
+.carousel-item {
+  background-color: rgb(161, 161, 161) !important;
 }
