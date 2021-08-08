@@ -63,6 +63,9 @@ def signup(request):
 def mypage(request):
     return render(request,'member.html')
 
+def food_recommend(request):
+    return render(request, 'recommend.html')
+
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
