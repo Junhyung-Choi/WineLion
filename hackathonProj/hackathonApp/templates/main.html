@@ -6,37 +6,61 @@
     <div class="mySlides fade">
       <div class="numbertext">1 / 6</div>
       <div class="image1"></div>
-      <div class="text">리뷰</div>
+      <div class="text_box">
+        <p class="tag_txt1">와인먹을래?  회원혜택</p> 
+        <p class="tag_txt2">지금 예약하면<br>UP TO 10% + 10% 추가할인,<br>최대 5% 적립까지</p> 
+        <a class="tag_txt3">회원혜택 확인</a>
+      </div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">2 / 6</div>
       <div class="image2"></div>
-      <div class="text">음식별 추천</div>
+      <div class="text_box">
+        <p class="tag_txt1">음식별 와인 추천</p> 
+        <p class="tag_txt2">오늘 저녁 메뉴와<br>어울리는 와인 찾기!<br>바디, 탄닌, 드라이까지</p> 
+        <a class="tag_txt3">와인 추천 받기</a>
+      </div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">3 / 6</div>
       <div class="image3"></div>
-      <div class="text">와인가이드</div>
+      <div class="text_box">
+        <p class="tag_txt11">와인가이드</p> 
+        <p class="tag_txt22">와인의 모든 것<br>A부터 Z까지<br>하나 하나 자세히</p> 
+        <a class="tag_txt33">가이드 바로가기</a>
+      </div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">4 / 6</div>
       <div class="image4"></div>
-      <div class="text">장소별 추천</div>
+      <div class="text_box">
+        <p class="tag_txt1">분위기별 추천</p> 
+        <p class="tag_txt2">오늘의 분위기와<br>어울리는 와인은 무엇?<br>나와 어울리는 와인 찾기</p> 
+        <a class="tag_txt3">추천 확인하러 가기</a>
+      </div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">5 / 6</div>
       <div class="image5"></div>
-      <div class="text">내주변 매장</div>
+      <div class="text_box">
+        <p class="tag_txt1">주변 할인 매장</p> 
+        <p class="tag_txt2">우리집 주변 할인 매장<br>어디어디가 가장 쌀까?<br>지금 바로 확인하러</p> 
+        <a class="tag_txt3">매장 알아보기</a>
+      </div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">6 / 6</div>
       <div class="image6"></div>
-      <div class="text">이달의 와인</div>
+      <div class="text_box">
+        <p class="tag_txt1">이달의 추천 와인</p> 
+        <p class="tag_txt2">오늘 당신의 선택은?<br>고민하고 있다면 지금 바로<br>취향따라 추천 받아보기</p> 
+        <a class="tag_txt3">오늘의 와인 추천</a>
+      </div>
     </div>
     <!-- Next and previous buttons -->
     <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
@@ -227,6 +251,9 @@
             <div class="thumbnail">
               <a><img src="{% static 'img/one1.jpg' %}" class="thumb img_link"/></a>
               <br/>
+              <span class="wish">
+                <img src="{% static 'img/score/gold.png' %}">
+              </span>
             </div>
             <div class="description">
               <p class="name">
@@ -243,6 +270,9 @@
             <div class="thumbnail">
               <a><img src="{% static 'img/one2.jpg' %}" class="thumb img_link"/></a>
               <br/>
+              <span class="wish">
+                <img src="{% static 'img/score/silver.png' %}">
+              </span>
             </div>
             <div class="description">
               <p class="name">
@@ -259,8 +289,12 @@
 
           <div class="swiper-slide deps_02 col_product sans-record-">
             <div class="thumbnail">
-              <a><img src="{% static 'img/one3.jpg' %}" class="thumb img_link"/></a>
+              <a>
+                <img src="{% static 'img/one3.jpg' %}" class="thumb img_link"/></a>
               <br/>
+              <span class="wish">
+                <img src="{% static 'img/score/bronze.png' %}">
+              </span>
             </div>
             <div class="description">
               <p class="name">
