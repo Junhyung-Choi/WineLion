@@ -1,6 +1,7 @@
 from hackathonApp.data import *
 from django.shortcuts import redirect, render
 
+from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from .forms import RegisterForm
@@ -28,7 +29,10 @@ def login_view(request):
             user = authenticate(request = request, username = username, password = password)
             if user is not None:
                 login(request, user)
-        return redirect('main')
+            return redirect("main")
+        else:
+            form = AuthenticationForm()
+            return render(request, 'login.html', {'form': form, "message" : "다시 한번 입력해주세요"})    
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
