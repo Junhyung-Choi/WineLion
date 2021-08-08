@@ -189,7 +189,6 @@ html {
 .dot {
   cursor: pointer;
   height: 15px;
-  width: 15px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
@@ -438,16 +437,13 @@ fieldset {
 
 .row {
   padding: 20px;
+  height: 400px;
 }
 
 .active,
 .carousel-item {
   background-color: rgba(214, 204, 190, 0.993) !important;
-  max-width: 1220px;
-  overflow: hidden;
-  margin: 0 auto !important;
 }
-
 
 /* footer */
 #footer {
@@ -457,7 +453,7 @@ fieldset {
 #footer .inner {
   overflow: hidden;
   position: relative;
-  width: 1220px!important;
+  width: 1220px !important;
   margin: 0 auto;
 }
 .footer_menu ul.menu {
