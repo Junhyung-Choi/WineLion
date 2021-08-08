@@ -18,13 +18,21 @@ def wine_info(request,id):
     body = (int(obj.body)-1)//2 + 1
     tannin = (int(obj.tannin)-1)//2 + 1
     dry = (int(obj.dry)-1)//2 + 1
+    review = Review.objects.filter(referring_wine_id = id)
+    star = 0
+    if len(review) != 0 :
+        for i in review:
+            star += i.star
+        star = star/int(len(review))
     context = {
         "wine": Wine.objects.get(id = id),
-        "reviews": Review.objects.filter(referring_wine_id = id),
+        "reviews": review,
         "pic": "/static/img/list/num"+str(id)+".jpg",
         "body": "/static/img/score/score"+str(body)+".png",
-        "tannin" : "/static/img/score/score"+str(tannin)+".png",
-        "dry" : "/static/img/score/score"+str(dry)+".png",
+        "tannin": "/static/img/score/score"+str(tannin)+".png",
+        "dry": "/static/img/score/score"+str(dry)+".png",
+        "star": star,
+        "star_percent": str(int(star/5*100)) + str('%')
     }
     return render(request,'riview.html',context)
 
