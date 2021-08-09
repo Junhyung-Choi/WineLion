@@ -102,22 +102,12 @@ h1,h2,h3,h4,h5,h6,p,form,ol,input,a {
     float: right;
     color: black;
 }
-.category { 
-    margin-left: 50px;
-    margin-right: 50px;
-    display: flex;
-    justify-content: space-between;
-}
-.subcategory {
-    align-items: center;
-}
-form {
-    background-color:lightgrey;
-    text-align: center;
-    display:flex;
-}
 form:hover {
     background-color:lightslategray;
+}
+.btn .btn-outline-success {
+    padding: 3px;
+    font-size:5px;
 }
 /* menu css */
 .menu{
