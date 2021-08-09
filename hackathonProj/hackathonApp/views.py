@@ -1,5 +1,5 @@
 from hackathonApp.data import *
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, reverse
 
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
@@ -36,6 +36,20 @@ def wine_info(request,id):
         "star": star,
         "star_percent": str(int(star/5*100)) + str('%')
     }
+    if request.method == "POST" :  
+        new_data = Review()
+        user = request.user
+        wine = Wine.objects.get(id = id)
+        new_data.referring_user_id = user
+        new_data.star = int(request.POST['star'])
+        new_data.body = request.POST['body']
+        new_data.referring_wine_id = wine
+        if (new_data.star == 0 or new_data.body == ""):
+            context['message'] = "형식을 확인해주세요."
+            return render(request, 'riview.html', context)
+        new_data.save()
+        return redirect('wine_info', wine.id)
+        
     return render(request,'riview.html',context)
 
 def login_view(request):
@@ -105,8 +119,10 @@ def create(request, user_id, wine_id):
     new_data.star = int(request.POST['star'])
     new_data.body = request.POST['body']
     new_data.referring_wine_id = wine
+    if (new_data.star == 0 or new_data.body == ""):
+        return redirect(reverse('wine_info', args = [wine.id]), kwargs = {"message" : "별점을 선택해주세요."})
     new_data.save()
-    return redirect('wine_info')
+    return redirect('wine_info', wine.id)
 
 def practice(request):
     return render(request,'side.html')

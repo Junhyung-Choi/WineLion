@@ -104,15 +104,18 @@
       {% endif %}
       </div>
       <div class="review">
+        <script>
+        if ("{{message}}" != "") 
+          alert("{{ message }}")
+         </script>
         <span style="font-weight:bold">리뷰쓰기</span>
         {% if user.is_authenticated %}
-            
-            <form action="{%url 'create' user.id wine.id %}" method="POST">
+            <form action="{%url 'wine_info' wine.id %}" method="POST">
                 {%csrf_token%}
                 <p>와인이름 : {{wine.name}}</p>
                 <p>작성자 : {{user.username}}</p>
                 <p>별점 : <select class="form-select form-select-sm" name = "star" >
-                          <option selected="selected">별점을 선택해주세요</option>
+                          <option value="0">별점을 선택해주세요</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -121,17 +124,18 @@
                         </select>
                 </p>
                 <p>본문 : <textarea name = "body" cols="30" rows="10"></textarea></p>
-                <button type="submit" class="btn btn-outline-primary">작성</button>
+                  <button type="submit" class="btn btn-outline-primary">작성</button>
             </form>
         {% else %}
             <div class="alert alert-warning" role="alert">
-        <h4 class="alert-heading">
-          <svg class="bi me-2" width="24" height="24" role="img" aria-label="Danger:">
-            <use xlink:href="#exclamation-triangle-fill"/>
-          </svg>
-          리뷰를 작성하려면 로그인을 해주세요!</h4>
-        <hr>
-      </div>
+              <h4 class="alert-heading">
+                <svg class="bi me-2" width="24" height="24" role="img" aria-label="Danger:">
+                  <use xlink:href="#exclamation-triangle-fill"/>
+                </svg>
+                리뷰를 작성하려면 로그인을 해주세요!
+              </h4>
+                <hr>
+            </div>
         {% endif %}
       </div>
     </div>
