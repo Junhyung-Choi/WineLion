@@ -32,9 +32,11 @@
   </div>
   {% for food in foods %}
   <div>
-    {{food}}
+    {{food.name}}
     {% for wine in wines %}
-      {{wine}}
+      {% if wine.name == food.name %}
+        {{wine.wine_list}}      
+      {% endif %}
     {% endfor %}
   </div>
   {% endfor %}

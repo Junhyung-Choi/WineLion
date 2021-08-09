@@ -82,11 +82,12 @@ def mypage(request):
 def food_recommend(request):
     if request.method == "POST":
         foods = Food.objects.filter(location=request.POST['location'])
-        wines = {}
+        wines = [{} for _ in range(len(foods))]
         for i in range(len(foods)):
-            wines[foods[i].name]= []
+            wines[i]["name"] = foods[i].name
+            wines[i]["wine_list"] = []
             for wine in foods[i].wines.all():
-                wines[foods[i].name].append(wine)
+                wines[i]["wine_list"].append(wine)
         context = {
             "foods": Food.objects.filter(location=request.POST['location']),
             "wines": wines
