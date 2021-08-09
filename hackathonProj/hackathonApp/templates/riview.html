@@ -2,28 +2,19 @@
 {% load static %}
 {% block content %}
   <link href="{% static 'css/riview.css' %}" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <script type="text/javascript" src="js/script.js"></script>
-
-  <!--바디-->
   <div class="structure">
     <div class="content">
-      <img src= {{pic}}>
+      <img src="{{pic}}">
     </div>
     <div class="content">
       <div class="subcontent">
         <h3>{{wine.name}}</h3>
       </div>
-      <div class="subcontent">
+      <div class=" subcontent">
         <div>
           {{wine.explain}}
         </div>
       </div>
-      <style>
-        td {
-          padding-left: 10px;
-        }
-      </style>
       <div class="subcontent">
         <table>
           <tr>
@@ -35,8 +26,7 @@
             <td>{{wine.country}}</td>
           </tr>
           <tr>
-            <th style="invisible=">
-              알코올도수</th>
+            <th>알코올도수</th>
             <td>{{wine.alchol}}</td>
           </tr>
           <tr>
@@ -44,13 +34,12 @@
             {% if wine.grape_type2 == "" %}
               <td>{{wine.grape_type1}}</td>
             {% else %}
-              <td>{{wine.grape_type1}},
-                {{wine.grape_type2}}</td>
+              <td>{{wine.grape_type1}},{{wine.grape_type2}}</td>
             {% endif %}
           </tr>
         </table>
       </div>
-      <div class="subcontent2" style ="padding-left=3px">
+      <div class="subcontent2" style="padding-left=3px">
         <div class="winetaste">
           <span style="font-weight:bold">Dry</span>
           <img src="{{dry}}">
@@ -60,85 +49,62 @@
           <img src="{{body}}">
         </div>
         <div class="winetaste">
-          <span style="margin-left:10px; font-weight:bold" >Tannin</span>
+          <span style="margin-left:10px; font-weight:bold">Tannin</span>
           <img src="{{tannin}}">
         </div>
       </div>
       <div class="subcontent2">
-      <style>
-        .star-rating{
-            width:205px;
-        }
-        .star-rating,.star-rating span{
-            display:inline-block;
-            height:39px;
-            overflow:hidden;
-            background:url(../../static/img/score/star.png)no-repeat;
-        }
-        .star-rating span{
-            background-position:left bottom;
-            line-height:0;
-            vertical-align:top;
-        }
-      </style>
         <div class="review">
           <span style="font-weight:bold">평점</span>
           <span class='star-rating'>
-          <span style="width:{{star_percent}}"></span>
+            <span style="width:{{star_percent}}"></span>
           </span>
-          
-          {% comment %} <img src="{% static 'img/rimg/Score4.png' %}"> {% endcomment %}
         </div>
       </div>
-      <div class="review">
-        <span style="font-weight:bold">리뷰</span>
-      {% if reviews == "리뷰가 없습니다." %}
-        <p>리뷰가 없습니다.</p>
-      {% else %}
-        {% for review in reviews %}
-        {{review}}
-        {{review.star}}
-        {{review.body}}
-        <br>
-      {% endfor %}
-      {% endif %}
-      </div>
-      <div class="review">
-        <script>
-        if ("{{message}}" != "") 
-          alert("{{ message }}")
-         </script>
-        <span style="font-weight:bold">리뷰쓰기</span>
-        {% if user.is_authenticated %}
-            <form action="{%url 'wine_info' wine.id %}" method="POST">
-                {%csrf_token%}
-                <p>와인이름 : {{wine.name}}</p>
-                <p>작성자 : {{user.username}}</p>
-                <p>별점 : <select class="form-select form-select-sm" name = "star" >
-                          <option value="0">별점을 선택해주세요</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                </p>
-                <p>본문 : <textarea name = "body" cols="30" rows="10"></textarea></p>
-                  <button type="submit" class="btn btn-outline-primary">작성</button>
-            </form>
+      <div class="subcontent review">
+        <span style="font-weight:bold; width: 60px;">리뷰</span>
+        {% if reviews == "리뷰가 없습니다." %}
+          <p>리뷰가 없습니다.</p>
         {% else %}
-            <div class="alert alert-warning" role="alert">
-              <h4 class="alert-heading">
-                <svg class="bi me-2" width="24" height="24" role="img" aria-label="Danger:">
-                  <use xlink:href="#exclamation-triangle-fill"/>
-                </svg>
-                리뷰를 작성하려면 로그인을 해주세요!
-              </h4>
-                <hr>
-            </div>
+          {% for review in reviews %}
+            {{review}}
+            {{review.star}}
+            {{review.body}}
+            <br>
+          {% endfor %}
         {% endif %}
       </div>
+      {% if user.is_authenticated %}
+      <script>
+        if ("{{message}}" != "") 
+          alert("{{ message }}")
+      </script>
+        <div class="review">
+          <span style="font-weight:bold">리뷰쓰기</span>
+          <form class="review-form col-8" action="{%url 'wine_info' wine.id %}" method="POST">
+            {%csrf_token%}
+            <select class="form-select form-select-lg" name="star">
+              <option selected="selected">별점을 선택해주세요</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <h5 style="margin-top : 10px">와인의 장단점은 무엇인가요? :
+              <textarea name="body" cols="30" rows="10" style="margin-top: 10px" placeholder="와인의 장,단점을 최소 30자 이상 작성해주세요. 작성 시 개인정보 포함을 주의해주세요. 여러분의 리뷰 한줄은 저희에게 큰 도움이 됩니다:)"></textarea>
+            </h5>
+            <button type="submit" class="btn btn-outline-primary">작성</button>
+          </form>
+        </div>
+      {% else %}
+        <div class="alert alert-warning" role="alert" style="text-align : center; margin-top : 10px">
+          <h4 class="alert-heading">
+            리뷰를 작성하려면 로그인을 해주세요!
+          </h4>
+        </div>
+      {% endif %}
     </div>
-    
+
   </div>
 {% endblock content %}

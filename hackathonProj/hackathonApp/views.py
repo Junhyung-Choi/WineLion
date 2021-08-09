@@ -111,19 +111,6 @@ def food_recommend(request):
         return render(request, 'recommend.html',context = context)
     return render(request, 'recommend.html')
 
-def create(request, user_id, wine_id):
-    new_data = Review()
-    user = CustomUser.objects.get(id = user_id)
-    wine = Wine.objects.get(id = wine_id)
-    new_data.referring_user_id = user
-    new_data.star = int(request.POST['star'])
-    new_data.body = request.POST['body']
-    new_data.referring_wine_id = wine
-    if (new_data.star == 0 or new_data.body == ""):
-        return redirect(reverse('wine_info', args = [wine.id]), kwargs = {"message" : "별점을 선택해주세요."})
-    new_data.save()
-    return redirect('wine_info', wine.id)
-
 def practice(request):
     return render(request,'side.html')
 
