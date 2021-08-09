@@ -80,6 +80,11 @@ def mypage(request):
     return render(request,'member.html')
 
 def food_recommend(request):
+    if request.method == "POST":
+        context = {
+            "foods": Food.objects.get(location=request.POST['location']),
+        }
+        return render(request, 'recommend.html',context = context)
     return render(request, 'recommend.html')
 
 def practice(request):
@@ -100,5 +105,5 @@ def insert_data(request):
     #insert_review()
     #insert_wine2food()
     #fix_WR()
-    fix_Wine()
+    #fix_Wine()
     return redirect('main')
