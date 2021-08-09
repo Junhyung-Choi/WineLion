@@ -112,7 +112,7 @@ def food_recommend(request):
     return render(request, 'recommend.html')
 
 def practice(request):
-    return render(request,'side.html')
+    return render(request,'practice.html')
 
 
 # ===================================================
