@@ -3,12 +3,14 @@
 
 {% block content %}
   <div style="margin-top : 5%; " class="text-center">
-    <h1>
+    <h1 style = "margin-bottom : 20px">
       마이페이지
     </h1>
     {% csrf_token %}
+
     {% if user.is_active %}
-      <div class="form-group" style="margin:20px; text-align: left">
+    
+      <div class="form-group col-4" style="margin:0 auto; text-align: left">
         <label for="user.username" style="margin-bottom: 5px">username</label>
         <h3 class="form-control b4-col">{{user.username}}</h3>
         <label for="user.username" style="margin-bottom: 5px">email</label>

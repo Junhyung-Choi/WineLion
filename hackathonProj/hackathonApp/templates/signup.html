@@ -38,7 +38,7 @@
       {% for field in form %}
         {% if field.name == "gender" %}
           <div class="form-group" style="margin:20px; text-align: left">
-            <label for="{{field.id_for_label}}" style="margin-bottom: 5px">{{field.name}}</label>
+            <label for="{{field.id_for_label}}" style="margin-bottom: 5px">{{field.label}}</label>
             {{field}}
           </div>
         {% else %}

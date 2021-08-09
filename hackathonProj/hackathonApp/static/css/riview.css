@@ -172,7 +172,7 @@ td {
   display: inline-block;
   height: 39px;
   overflow: hidden;
-  background: url(../../static/img/score/star.png) no-repeat;
+  background: url(../img/score/star.png) no-repeat;
 }
 .star-rating span {
   background-position: left bottom;

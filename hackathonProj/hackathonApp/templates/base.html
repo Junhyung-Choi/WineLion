@@ -30,11 +30,11 @@
           }
         </style>
         {% if user.is_authenticated %}
-          <div class="navItem" style="text-align:center">
+          <div class="navItem col-10" style="text-align:center">
             <img src="{% static 'img/mypage.png' %}" width="30px" height="30px"/>
             <a href="{% url 'mypage' %}" class="aTag">{{user.username}}님 환영합니다.</a>
           </div>
-          <div class="navItem" id='button'>
+          <div class="navItem col-4" id='button'>
             <a href="{% url 'logout' %}" class="btn btn-outline-primary aTag">
               로그아웃
             </a>
@@ -50,7 +50,7 @@
     </nav>
 
     {% block content %}{% endblock content %}
-    <div class="line"></div>
+    <div class="line" style = "margin-top : 20px;"></div>
     <div class="inner footer-content">
       <div class="footer_menu" style="display: flex; justify-content: center;">
         <ul class="menu">
