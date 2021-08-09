@@ -24,6 +24,8 @@ def wine_info(request,id):
         for i in review:
             star += i.star
         star = star/int(len(review))
+    if len(review) == 0:
+        review = "리뷰가 없습니다."
     context = {
         "wine": Wine.objects.get(id = id),
         "reviews": review,
@@ -94,6 +96,17 @@ def food_recommend(request):
         }
         return render(request, 'recommend.html',context = context)
     return render(request, 'recommend.html')
+
+def create(request, user_id, wine_id):
+    new_data = Review()
+    user = CustomUser.objects.get(id = user_id)
+    wine = Wine.objects.get(id = wine_id)
+    new_data.referring_user_id = user
+    new_data.star = int(request.POST['star'])
+    new_data.body = request.POST['body']
+    new_data.referring_wine_id = wine
+    new_data.save()
+    return redirect('wine_info')
 
 def practice(request):
     return render(request,'side.html')
