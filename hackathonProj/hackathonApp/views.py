@@ -106,7 +106,7 @@ def create(request, user_id, wine_id):
     new_data.body = request.POST['body']
     new_data.referring_wine_id = wine
     new_data.save()
-    return redirect('wine_info')
+    return redirect('wine_info',wine_id)
 
 def practice(request):
     return render(request,'side.html')
