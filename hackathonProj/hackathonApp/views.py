@@ -97,15 +97,17 @@ def food_recommend(request):
         return render(request, 'recommend.html',context = context)
     return render(request, 'recommend.html')
 
-def create_review(request):
-    return render(request,'create_review.html')
-
-def create(request):
+def create(request, user_id, wine_id):
     new_data = Review()
-    new_data.star = request.POST['star']
+    user = CustomUser.objects.get(id = user_id)
+    wine = Wine.objects.get(id = wine_id)
+    new_data.referring_user_id = user
+    new_data.star = int(request.POST['star'])
     new_data.body = request.POST['body']
+    new_data.referring_wine_id = wine
     new_data.save()
-    return redirect('main')
+    return redirect('wine_info')
+
 def practice(request):
     return render(request,'side.html')
 
