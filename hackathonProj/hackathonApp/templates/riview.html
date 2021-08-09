@@ -82,7 +82,7 @@
         }
       </style>
         <div class="review">
-            <span style="font-weight:bold">평점</span>
+          <span style="font-weight:bold">평점</span>
           <span class='star-rating'>
           <span style="width:{{star_percent}}"></span>
           </span>
@@ -91,14 +91,22 @@
         </div>
       </div>
       <div class="subcontent">
-      {{review}}
-      {% for review in reviews  %}
+        <span style="font-weight:bold">리뷰</span>
+      {% if reviews == "리뷰가 없습니다." %}
+        <p>리뷰가 없습니다.</p>
+      {% else %}
+        {% for review in reviews %}
         {{review}}
         {{review.star}}
         {{review.body}}
         <br>
       {% endfor %}
+      {% endif %}
       </div>
+      <a href="{% url 'create_review' %}">
+        <button class="btn btn-outline-primary">리뷰쓰러가기</button>
+      </a>
     </div>
+    
   </div>
 {% endblock content %}

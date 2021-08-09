@@ -24,6 +24,8 @@ def wine_info(request,id):
         for i in review:
             star += i.star
         star = star/int(len(review))
+    if len(review) == 0:
+        review = "리뷰가 없습니다."
     context = {
         "wine": Wine.objects.get(id = id),
         "reviews": review,
@@ -81,6 +83,16 @@ def mypage(request):
 
 def food_recommend(request):
     return render(request, 'recommend.html')
+
+def create_review(request):
+    return render(request,'create_review.html')
+
+def create(request):
+    new_data = Review()
+    new_data.star = request.POST['star']
+    new_data.body = request.POST['body']
+    new_data.save()
+    return redirect('main')
 
 
 # ===================================================
