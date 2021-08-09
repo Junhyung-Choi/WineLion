@@ -1,6 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
+  <div class="container">
+    <form class="col-4" action="{% url 'food_recommend' %}" style="margin: 0 auto" method="POST">
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="location" class="col-sm-1-12 col-form-label"></label>
+        {% comment %} <div class="col-sm-1-12">
+          <input type="text" class="form-control" name="location" id="location" placeholder="">
+        </div> {% endcomment %}
+        <select class="form-select form-select-sm" name = "location" >
+          <option selected="selected">선택메뉴 열어 새끼야</option>
+          <option value="KR">한국음식</option>
+          <option value="CH">중국음식</option>
+          <option value="JA">일본음식</option>
+          <option value="WE">서양음식</option>
+          <option value="WR">기타음식</option>
+        </select>
+      </div>
+      <fieldset class="form-group row">
+        <legend class="col-form-legend col-sm-1-12">Group name</legend>
+        <div class="col-sm-1-12"></div>
+      </fieldset>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Action</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  {% for food in foods %}
+  <div>
+    {{food}}
+    {% for wine in wines %}
+      {{wine}}
+    {% endfor %}
+  </div>
+  {% endfor %}
   <link href="{% static 'css/r_style.css' %}" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="js/script.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
