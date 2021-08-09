@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <nav class="navbar" style="margin-top: 0%">
+    <nav class="navbar" style="margin-top: 0%; border-bottom: 1px solid black;">
       <div class="navBox1">
         <a href="{% url 'main' %}"><img src="{% static 'img/logo.jpg' %}"/></a>
       </div>
@@ -49,32 +49,59 @@
       </div>
     </nav>
 
-    <div class="line"></div>
     {% block content %}{% endblock content %}
     <div class="line"></div>
-    <div class="inner footer-content" >
-      <div class="footer_menu" style="display: flex; justify-content: center;" >
-          <ul class="menu" ><li>공지사항</li>
-                 <li><b>제휴문의</b></li>
-               <li>이용약관</li>
-               <li><b>개인정보처리방침</b></li>
-          </ul>
-      </div>        
-         <div class="xans-element- xans-layout xans-layout-footer"><p class="call"><span class="footer_bold">대표번호</span> 010.7299.9392</p>
- <p class="address ">
-                 <span><span class="footer_bold"> 주소 </span>  한양대학교 ERICA </span><span><span class="footer_bold"></span> 법인명  주식회사 Likelion </span><span class="footer_bar"></span><br><br><br>
-                 <span><span class="biz">사업자등록정보 </span> 123-456-7891  </span></span><span class="footer_bar"></span> 
-                 <span>대표자 조승현</span><br /><br /></p>
- <p class="address2 ">
-                 <span>제휴/입점문의 </span><span class="footer_bar"></span>
-         <span>기업특판 문의 </span><span class="footer_bar"></span>
-                 <span>고객센터 </span><br></span><br /><span class="copy">©2021 WineLion. All rights reserved. 무단 전재와 무단 복제를 금함.</span>
-             </p>
- 
- </div>
-     
+    <div class="inner footer-content">
+      <div class="footer_menu" style="display: flex; justify-content: center;">
+        <ul class="menu">
+          <li>공지사항</li>
+          <li>
+            <b>제휴문의</b>
+          </li>
+          <li>이용약관</li>
+          <li>
+            <b>개인정보처리방침</b>
+          </li>
+        </ul>
+      </div>
+      <div class="xans-element- xans-layout xans-layout-footer">
+        <p class="call">
+          <span class="footer_bold">대표번호</span>
+          010.7299.9392</p>
+        <p class="address ">
+          <span>
+            <span class="footer_bold">
+              주소
+            </span>
+            한양대학교 ERICA
+          </span>
+          <span>
+            <span class="footer_bold"></span>
+            법인명 주식회사 Likelion
+          </span>
+          <span class="footer_bar"></span><br><br><br>
+          <span><span class="biz">사업자등록정보
+            </span>
+            123-456-7891
+          </span>
+        </span>
+        <span class="footer_bar"></span>
+        <span>대표자 조승현</span><br/><br/></p>
+      <p class="address2 ">
+        <span>제휴/입점문의
+        </span>
+        <span class="footer_bar"></span>
+        <span>기업특판 문의
+        </span>
+        <span class="footer_bar"></span>
+        <span>고객센터
+        </span><br></span><br/>
+      <span class="copy">©2021 WineLion. All rights reserved. 무단 전재와 무단 복제를 금함.</span>
+    </p>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 
 </html>

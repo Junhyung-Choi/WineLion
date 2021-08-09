@@ -2,28 +2,19 @@
 {% load static %}
 {% block content %}
   <link href="{% static 'css/riview.css' %}" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <script type="text/javascript" src="js/script.js"></script>
-
-  <!--바디-->
   <div class="structure">
     <div class="content">
-      <img src= {{pic}}>
+      <img src="{{pic}}">
     </div>
     <div class="content">
       <div class="subcontent">
         <h3>{{wine.name}}</h3>
       </div>
-      <div class="subcontent">
+      <div class=" subcontent">
         <div>
           {{wine.explain}}
         </div>
       </div>
-      <style>
-        td {
-          padding-left: 10px;
-        }
-      </style>
       <div class="subcontent">
         <table>
           <tr>
@@ -35,8 +26,7 @@
             <td>{{wine.country}}</td>
           </tr>
           <tr>
-            <th style="invisible=">
-              알코올도수</th>
+            <th>알코올도수</th>
             <td>{{wine.alchol}}</td>
           </tr>
           <tr>
@@ -44,13 +34,12 @@
             {% if wine.grape_type2 == "" %}
               <td>{{wine.grape_type1}}</td>
             {% else %}
-              <td>{{wine.grape_type1}},
-                {{wine.grape_type2}}</td>
+              <td>{{wine.grape_type1}},{{wine.grape_type2}}</td>
             {% endif %}
           </tr>
         </table>
       </div>
-      <div class="subcontent2" style ="padding-left=3px">
+      <div class="subcontent2" style="padding-left=3px">
         <div class="winetaste">
           <span style="font-weight:bold">Dry</span>
           <img src="{{dry}}">
@@ -60,45 +49,33 @@
           <img src="{{body}}">
         </div>
         <div class="winetaste">
-          <span style="margin-left:10px; font-weight:bold" >Tannin</span>
+          <span style="margin-left:10px; font-weight:bold">Tannin</span>
           <img src="{{tannin}}">
         </div>
       </div>
       <div class="subcontent2">
-      <style>
-        .star-rating{
-            width:205px;
-        }
-        .star-rating,.star-rating span{
-            display:inline-block;
-            height:39px;
-            overflow:hidden;
-            background:url(../../static/img/score/star.png)no-repeat;
-        }
-        .star-rating span{
-            background-position:left bottom;
-            line-height:0;
-            vertical-align:top;
-        }
-      </style>
         <div class="review">
-            <span style="font-weight:bold">평점</span>
+          <span style="font-weight:bold">평점</span>
           <span class='star-rating'>
-          <span style="width:{{star_percent}}"></span>
+            <span style="width:{{star_percent}}"></span>
           </span>
-          
-          {% comment %} <img src="{% static 'img/rimg/Score4.png' %}"> {% endcomment %}
         </div>
       </div>
-      <div class="subcontent">
-      {{review}}
-      {% for review in reviews  %}
-        {{review}}
-        {{review.star}}
-        {{review.body}}
-        <br>
+      <h1>리뷰</h1>
+      {% for review in reviews %}
+        <div class="subcontent review">
+          <div class="user">
+            {{review}}
+          </div>
+          <div class="star">
+            {{review.star}}
+          </div>
+          <div class="body">
+            {{review.body}}
+          </div>
+        </div>
+        <br/>
       {% endfor %}
-      </div>
     </div>
   </div>
 {% endblock content %}
