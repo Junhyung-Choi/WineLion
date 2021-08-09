@@ -49,6 +49,7 @@ def login_view(request):
                 login(request, user)
             return redirect("main")
         else:
+            
             form = AuthenticationForm()
             return render(request, 'login.html', {'form': form, "message" : "회원정보를 확인해주세요."})    
     else:
@@ -63,25 +64,37 @@ def base(request):
     return render(request,'base.html')
 
 def signup(request):
-    if request.method == "POST": #1
+    if request.method == "POST":
         form = RegisterForm(request.POST)
-    
         if form.is_valid(): #2
             new_user = form.save()
             # new_user = models.CustomUser.objects.create_user(**form.cleaned_data) #5
             login(request, new_user)
-        
-        return redirect('main')
-
-    else: #3
+            return redirect('main')
+        else:
+            form = RegisterForm()
+            return render(request, 'signup.html', {'form': form, "message": "password"})    
+    else:
         form = RegisterForm()
-
     return render(request, 'signup.html', {'form': form}) #4
 
 def mypage(request):
     return render(request,'member.html')
 
 def food_recommend(request):
+    if request.method == "POST":
+        foods = Food.objects.filter(location=request.POST['location'])
+        wines = [{} for _ in range(len(foods))]
+        for i in range(len(foods)):
+            wines[i]["name"] = foods[i].name
+            wines[i]["wine_list"] = []
+            for wine in foods[i].wines.all():
+                wines[i]["wine_list"].append(wine)
+        context = {
+            "foods": Food.objects.filter(location=request.POST['location']),
+            "wines": wines
+        }
+        return render(request, 'recommend.html',context = context)
     return render(request, 'recommend.html')
 
 def create_review(request):
@@ -93,6 +106,8 @@ def create(request):
     new_data.body = request.POST['body']
     new_data.save()
     return redirect('main')
+def practice(request):
+    return render(request,'side.html')
 
 
 # ===================================================
@@ -109,5 +124,5 @@ def insert_data(request):
     #insert_review()
     #insert_wine2food()
     #fix_WR()
-    fix_Wine()
+    #fix_Wine()
     return redirect('main')

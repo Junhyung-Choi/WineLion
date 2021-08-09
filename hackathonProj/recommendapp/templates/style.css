@@ -133,9 +133,9 @@ form:hover {
     flex:1;
 }
 .menutype > div > img {
-    width:150px;
-    height:150px;
-    border-radius:20px;
+    width:150px !important;
+    height:150px !important;
+    border-radius:20px !important;
 }
 .menutype > h4,h3,ol,div {
     text-align:center;  
@@ -145,12 +145,19 @@ form:hover {
 }
 .winetype{
     display:flex;
-    flex-direction:column;
-    
+    justify-content: space-between;
 }
 .winetype > li > div {
     margin-bottom:20px;
 }
 .winetype > ol > li,div > a {
     cursor: pointer;
+}
+.winetype > ol > li,div > img {
+    width:100px;
+    height:100px;
+}
+.winelink {
+    display:flex;
+    flex-direction:column;
 }

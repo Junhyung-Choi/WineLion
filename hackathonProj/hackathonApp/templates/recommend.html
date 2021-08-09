@@ -1,258 +1,287 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <link href="{% static 'css/r_style.css' %}" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="js/script.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-<!-- 음식별 카테고리 -->
-    <!-- 검색기능 -->
-    <div class="search">
-        <div>
-            <h3>음식별 추천</h3>
+  <div class="container">
+    <form class="col-4" action="{% url 'food_recommend' %}" style="margin: 0 auto" method="POST">
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="location" class="col-sm-1-12 col-form-label"></label>
+        {% comment %} <div class="col-sm-1-12">
+          <input type="text" class="form-control" name="location" id="location" placeholder="">
+        </div> {% endcomment %}
+        <select class="form-select form-select-sm" name = "location" >
+          <option selected="selected">선택메뉴 열어 새끼야</option>
+          <option value="KR">한국음식</option>
+          <option value="CH">중국음식</option>
+          <option value="JA">일본음식</option>
+          <option value="WE">서양음식</option>
+          <option value="WR">기타음식</option>
+        </select>
+      </div>
+      <fieldset class="form-group row">
+        <legend class="col-form-legend col-sm-1-12">Group name</legend>
+        <div class="col-sm-1-12"></div>
+      </fieldset>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Action</button>
         </div>
-        <div class="foodsearch">
-            <input type="text" placeholder="음식 입력">
-            <button>검색</button>
-        </div>
+      </div>
+    </form>
+  </div>
+  {% for food in foods %}
+  <div>
+    {{food.name}}
+    {% for wine in wines %}
+      {% if wine.name == food.name %}
+        {{wine.wine_list}}      
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <link href="{% static 'css/r_style.css' %}" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="js/script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link href="{% static 'css/r_style.css' %}" rel="stylesheet" type="text/css">
+  <div class="search">
+    <div>
+      <h3>음식별 추천 페이지</h3>
     </div>
-    <!-- 음식종류 -->
-    <div class="category">
-        <div class= "foodcategory">
-            <form>
-                <img src="{% static 'img/rimg/Korea.png' %}" width="30px" height="30px">
-                한식 (Korean)
-            </form>
-        </div>
-        <div class= "foodcategory">
-            <form>
-                <img src="{% static 'img/rimg/Western.png' %}" width="30px" height="30px">
-                양식 (Western)
-            </form>
-        </div>
-        <div class= "foodcategory">
-            <form>
-                <img src="{% static 'img/rimg/China.png' %}" width="30px" height="30px">
-                중식 (Chinese)
-            </form>
-        </div>
-        <div class= "foodcategory">
-            <form>
-                <img src="{% static 'img/rimg/Japan.png' %}" width="30px" height="30px">
-                일식 (Japanese)
-            </form>
-        </div>
-        <div class= "foodcategory">
-            <form>
-                <img src="{% static 'img/rimg/Desert.jpg' %}" width="30px" height="30px">
-                디저트 (Desert)
-            </form>
-        </div>
+    <div class="foodsearch">
+      <input type="text" placeholder="음식 입력">
+      <button>검색</button>
     </div>
-<!-- 한식 순위 종류 -->
-    <div class="menu">
+  </div>
+  {% comment %} 부트스트랩을 이용한 내브바 작업 {% endcomment %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+          <img src='{% static "img/rimg/Korea.png" %}' width="30px" height="30px">
+          한식
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+          <img src='{% static "img/rimg/Western.png" %}' width="30px" height="30px">
+          양식
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+          <img src='{% static "img/rimg/China.png" %}' width="30px" height="30px">
+          중식
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+          <img src='{% static "img/rimg/Japan.png" %}' width="30px" height="30px">
+          일식
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+          <img src='{% static "img/rimg/Desert.jpg" %}' width="30px" height="30px">
+          디저트
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+          <img src='{% static "img/rimg/world_food.jpg" %}' width="30px" height="30px">
+          기타음식
+          </a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="음식을 입력해주세요" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">검색</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
-        <div class="submenu">
-            <div class="menutype">
-                <h4>소고기 등심</h4>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <img src="{% static 'img/rimg/Beef.jpg' %}">
-                            <!-- 1.Chateau Petrus 샤토페투루스 -->
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                        <strong></strong>
-                        </div>
+  <!-- 한식 순위 종류 -->
+  <div class="menu">
+
+    <div class="submenu">
+      <div class="menutype">
+        <h4>소고기등심</h4>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <div><img src='{% static "img/rimg/Beef.jpg" %}'></div>
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <h3>와인추천 Best 3</h3>
+                <ol class="winetype">
+                  <li>
+                    <div class="winelink">
+                      <a href="와인설명">와인A</a>
+                      <img src='{% static "img/rimg/Beef.jpg" %}'>
                     </div>
-                </div>
-            </div>
-            <div class="menutype">
-                <h3>와인추천 Best 3</h3>
-                <div>
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    1.Chateau Petrus 샤토페투루스
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                <strong></strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    2.Romanee Conti 로마네 꽁티
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    3.Chateau d’Yquem 샤토 디켐
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong>
-                                </div>
-                            </div>
-                        </div>
+                  </li>
+                  <li>
+                    <div class="winelink">
+                      <a href="와인설명">와인B</a>
                     </div>
-                 </div>
-            </div>
-        </div>
-
-        <div class="submenu">
-            <div class="menutype">
-                <h4>족발</h4>
-                <div><img src="{% static 'img/rimg/Jokbal.jpg' %}"></div>
-            </div>
-            <div class="menutype">
-                <h3>와인추천 Best 3</h3>
-                <ol class="winetype">
-                   <li>
-                        <div>
-                            <a href= "와인설명">와인A</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인B</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인C</a>
-                        </div>
-                    </li>
+                  </li>
+                  <li>
+                    <div class="winelink">
+                      <a href="와인설명">와인C</a>
+                    </div>
+                  </li>
                 </ol>
+              </div>
             </div>
+          </div>
         </div>
-
-        <div class="submenu">
-            <div class="menutype">
-                <h4>떡볶이</h4>
-                <div><img src="{% static 'img/rimg/Tteokbokki.jpg' %}"></div>
-            </div>
-            <div class="menutype">
-                <h3>와인추천 Best 3</h3>
-                <ol class="winetype">
-                   <li>
-                        <div>
-                            <a href= "와인설명">와인A</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인B</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인C</a>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-
-        <div class="submenu">
-            <div class="menutype">
-                <h4>해물찜</h4>
-                <div><img src="{% static 'img/rimg/Haemuljjim.jpg' %}"></div>
-            </div>
-            <div class="menutype">
-                <h3>와인추천 Best 3</h3>
-                <ol class="winetype">
-                   <li>
-                        <div>
-                            <a href= "와인설명">와인A</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인B</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인C</a>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-
-        <div class="submenu">
-            <div class="menutype">
-                <h4>전</h4>
-                <div><img src="{% static 'img/rimg/Jeon.jpg' %}"></div>
-            </div>
-            <div class="menutype">
-                <h3>와인추천 Best 3</h3>
-                <ol class="winetype">
-                   <li>
-                        <div>
-                            <a href= "와인설명">와인A</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인B</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인C</a>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-        
-        <div class="submenu">
-            <div class="menutype">
-                <h4>막창</h4>
-                <div><img src="{% static 'img/rimg/Makchang.jpg' %}"></div>
-            </div>
-            <div class="menutype">
-                <h3>와인추천 Best 3</h3>
-                <ol class="winetype">
-                   <li>
-                        <div>
-                            <a href= "와인설명">와인A</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인B</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href= "와인설명">와인C</a>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
+      </div>
     </div>
-<!-- 양식 순위 종류 -->
-<!-- 중식 순위 종류 -->
-<!-- 일식 순위 종류 -->      
-<!-- 디저트 순위 종류 -->
-<!-- 기타음식 순위 종류 --> 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>     
+
+    <div class="submenu">
+      <div class="menutype">
+        <h4>족발</h4>
+        <div><img src='{% static "img/rimg/Jokbal.jpg" %}'></div>
+      </div>
+      <div class="menutype">
+        <h3>와인추천 Best 3</h3>
+        <ol class="winetype">
+          <li>
+            <div>
+              <a href="와인설명">와인A</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인B</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인C</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="submenu">
+      <div class="menutype">
+        <h4>떡볶이</h4>
+        <div><img src='{% static "img/rimg/Tteokbokki.jpg" %}'></div>
+      </div>
+      <div class="menutype">
+        <h3>와인추천 Best 3</h3>
+        <ol class="winetype">
+          <li>
+            <div>
+              <a href="와인설명">와인A</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인B</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인C</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="submenu">
+      <div class="menutype">
+        <h4>해물찜</h4>
+        <div><img src='{% static "img/rimg/Haemuljjim.jpg" %}'></div>
+      </div>
+      <div class="menutype">
+        <h3>와인추천 Best 3</h3>
+        <ol class="winetype">
+          <li>
+            <div>
+              <a href="와인설명">와인A</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인B</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인C</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="submenu">
+      <div class="menutype">
+        <h4>전</h4>
+        <div><img src='{% static "img/rimg/Jeon.jpg" %}'></div>
+      </div>
+      <div class="menutype">
+        <h3>와인추천 Best 3</h3>
+        <ol class="winetype">
+          <li>
+            <div>
+              <a href="와인설명">와인A</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인B</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인C</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="submenu">
+      <div class="menutype">
+        <h4>막창</h4>
+        <div><img src='{% static "img/rimg/Makchang.jpg" %}'></div>
+      </div>
+      <div class="menutype">
+        <h3>와인추천 Best 3</h3>
+        <ol class="winetype">
+          <li>
+            <div>
+              <a href="와인설명">와인A</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인B</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="와인설명">와인C</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- 양식 순위 종류 -->
+  <!-- 중식 순위 종류 -->
+  <!-- 일식 순위 종류 -->
+  <!-- 디저트 순위 종류 -->
+  <!-- 기타음식 순위 종류 -->
 {% endblock content %}
