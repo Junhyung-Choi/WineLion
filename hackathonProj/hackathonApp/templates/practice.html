@@ -6,13 +6,47 @@
       <div class=" accordion" id="accordionExample">
         <div class="accordion-item">
           <div class="row row-cols-1 row-cols-md-3 g-4">
+            <script>
+              var last = 0
+              var isOpen = 1
+
+              function button_click(num) {
+                if (isOpen == 0) {
+                  if (last == num) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = (num.toString() + "내용입니다.");
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  }
+                  isOpen = 1;
+                } else {
+                  if (last == num) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                    isOpen = 0;
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = (num.toString() + "내용입니다.");
+                  }
+                }
+                last = num;
+              }
+            </script>
             <div class="col">
               <div class="card h-100">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" onclick="button1_click();">
+                  <button class="btn btn-outline-primary" type="button" onclick="button_click(1);">
                     Accordion Item #1
                   </button>
                 </div>
@@ -24,106 +58,12 @@
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" onclick="button2_click();">
+                  <button class="btn btn-outline-primary" type="button" onclick="button_click(2);">
                     Accordion Item #2
                   </button>
                 </div>
               </div>
             </div>
-            <script>
-              var last = 0
-              var isOpen = 1
-
-              function button1_click() {
-                if (isOpen == 0) {
-                  if (last == 1) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = ("1의 내용입니다.");
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  }
-                  isOpen = 1;
-                } else {
-                  if (last == 1) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = ("1의 내용입니다.");
-                  }
-                  isOpen = 0;
-                }
-                last = 1;
-              }
-
-              function button2_click() {
-                if (isOpen == 0) {
-                  if (last == 1) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = ("1의 내용입니다.");
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  }
-                  isOpen = 1;
-                } else {
-                  if (last == 1) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = ("1의 내용입니다.");
-                  }
-                  isOpen = 0;
-                }
-                last = 1;
-              }
-
-              function button3_click() {
-                if (isOpen == 0) {
-                  if (last == 1) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = ("1의 내용입니다.");
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  }
-                  isOpen = 1;
-                } else {
-                  if (last == 1) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = ("1의 내용입니다.");
-                  }
-                  isOpen = 0;
-                }
-                last = 1;
-              }
-            </script>
             <div class="col">
               <div class="card h-100">
                 <img src="..." class="card-img-top" alt="...">
@@ -131,14 +71,14 @@
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
 
-                  <button class="btn btn-outline-primary" type="button" onclick="button3_click();">
+                  <button class="btn btn-outline-primary" type="button" onclick="button_click(3);">
                     Accordion Item #3
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <button id="testbutton" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <button id="testbutton" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display:none">
             Accordion Item #2
           </button>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
