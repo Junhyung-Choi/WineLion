@@ -30,33 +30,107 @@
                 </div>
               </div>
             </div>
+            <script>
+              var last = 0
+              var isOpen = 1
+
+              function button1_click() {
+                if (isOpen == 0) {
+                  if (last == 1) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = ("1의 내용입니다.");
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  }
+                  isOpen = 1;
+                } else {
+                  if (last == 1) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = ("1의 내용입니다.");
+                  }
+                  isOpen = 0;
+                }
+                last = 1;
+              }
+
+              function button2_click() {
+                if (isOpen == 0) {
+                  if (last == 1) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = ("1의 내용입니다.");
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  }
+                  isOpen = 1;
+                } else {
+                  if (last == 1) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = ("1의 내용입니다.");
+                  }
+                  isOpen = 0;
+                }
+                last = 1;
+              }
+
+              function button3_click() {
+                if (isOpen == 0) {
+                  if (last == 1) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = ("1의 내용입니다.");
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  }
+                  isOpen = 1;
+                } else {
+                  if (last == 1) {
+                    document
+                      .getElementById("testbutton")
+                      .click();
+                  } else {
+                    document
+                      .getElementById("testing")
+                      .innerHTML = ("1의 내용입니다.");
+                  }
+                  isOpen = 0;
+                }
+                last = 1;
+              }
+            </script>
             <div class="col">
               <div class="card h-100">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                  <script>
-                    var last = 0
 
-                    function button1_click() {
-                      document
-                        .getElementById("testing")
-                        .innerHTML = "<h3>버튼 1의 내용입니다 </h3>"
-                    }
-
-                    function button2_click() {
-                      document
-                        .getElementById("testing")
-                        .innerHTML = "<h3>버튼 2의 내용입니다 </h3>"
-                    }
-
-                    function button3_click() {
-                      document
-                        .getElementById("testbutton")
-                        .click()
-                    }
-                  </script>
                   <button class="btn btn-outline-primary" type="button" onclick="button3_click();">
                     Accordion Item #3
                   </button>
@@ -64,14 +138,14 @@
               </div>
             </div>
           </div>
+          <button id="testbutton" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Accordion Item #2
+          </button>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body" id="testing">
               <strong>This is the first item's accordion body.</strong>
               It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
               <code>.accordion-body</code>, though the transition does limit overflow.
-              <button id="testbutton" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Accordion Item #2
-              </button>
             </div>
           </div>
         </div>
