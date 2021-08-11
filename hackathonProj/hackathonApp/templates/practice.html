@@ -1,129 +1,89 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <div class="row justify-content-center" style="height:100%">
+  <script>
+    var last = Array.from({
+      length: 100
+    }, () => -1);
+    var isOpen = Array.from({
+      length: 100
+    }, () => 0);
+
+    function button_click(num) {
+      num = parseInt(num);
+      row = parseInt(num / 3) + 1;
+      wines = document
+        .getElementById("food" + num.toString())
+        .innerHTML;
+
+      if (isOpen[row] == 0) {
+        if (last[row] == num) {
+          console.log("01")
+          document
+            .getElementById("testbutton" + row.toString())
+            .click();
+        } else {
+          console.log("02")
+          document
+            .getElementById("testing" + row.toString())
+            .innerHTML = wines;
+          document
+            .getElementById("testbutton" + row.toString())
+            .click();
+        }
+        isOpen[row] = 1;
+      } else {
+        if (last[row] == num) {
+          console.log("03")
+          document
+            .getElementById("testbutton" + row.toString())
+            .click();
+          isOpen[row] = 0;
+        } else {
+          console.log("04")
+          console.log(num.toString())
+          document
+            .getElementById("testing" + row.toString())
+            .innerHTML = wines;
+        }
+      }
+      last[row] = num;
+    }
+  </script>
+  <div class="row justify-content-center" style="height:auto;">
     <div class="col-9">
-      <div class=" accordion" id="accordionExample">
-        <div class="accordion-item">
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <script>
-              var last = 0
-              var isOpen = 1
-
-              function button_click(num) {
-                if (isOpen == 0) {
-                  if (last == num) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = (num.toString() + "내용입니다.");
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                  }
-                  isOpen = 1;
-                } else {
-                  if (last == num) {
-                    document
-                      .getElementById("testbutton")
-                      .click();
-                    isOpen = 0;
-                  } else {
-                    document
-                      .getElementById("testing")
-                      .innerHTML = (num.toString() + "내용입니다.");
-                  }
-                }
-                last = num;
-              }
-            </script>
-            <div class="col">
-              <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button class="btn btn-outline-primary" type="button" onclick="button_click(1);">
-                    Accordion Item #1
-                  </button>
+      <div class="accordion" id="accordionExample">
+        {% for row in rows %}
+          <div class="accordion-item">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              {% for card in row.cards %}
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{card.food.name}}</h5>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <button class="btn btn-outline-primary" type="button" onclick="button_click({{card.num}});">
+                        Accordion Item #{{card.num}}
+                      </button>
+                      <div id="food{{card.num}}" style="display:none">{{card.wines}}</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              {% endfor %}
             </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button class="btn btn-outline-primary" type="button" onclick="button_click(2);">
-                    Accordion Item #2
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-
-                  <button class="btn btn-outline-primary" type="button" onclick="button_click(3);">
-                    Accordion Item #3
-                  </button>
-                </div>
+            <button id="testbutton{{row.num}}" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{row.num}}" style="display:none">
+              Accordion Item #2
+            </button>
+            <div id="collapse{{row.num}}" class="accordion-collapse collapse">
+              <div class="accordion-body" id="testing{{row.num}}">
+                <strong>This is the first item's accordion body.</strong>
+                It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit overflow.
               </div>
             </div>
           </div>
-          <button id="testbutton" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="display:none">
-            Accordion Item #2
-          </button>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body" id="testing">
-              <strong>This is the first item's accordion body.</strong>
-              It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-              <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-              <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    Accordion Item #1
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    Accordion Item #1
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <strong>This is the first item's accordion body.</strong>
-              It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-              <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
