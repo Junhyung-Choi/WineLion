@@ -239,9 +239,7 @@ def wine_list(request):
                 wines = Wine.objects.all()
     else:
         wines = Wine.objects.all()
-    debug.append(7)    
     cards = [{} for _ in range(len(wines))]
-    debug.append(8)
     for i in range(len(wines)):
         cards[i]['img'] = "/static/img/list/num" + str(wines[i].id) + ".jpg"
         cards[i]['data'] = wines[i]
