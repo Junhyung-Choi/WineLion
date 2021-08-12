@@ -1,41 +1,50 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <form class="row justify-items-around col-9" action="{% url 'wine_list' %}" style="margin: 0 auto; height: auto; margin-top: 30px; border: 1px solid #d4d4d4; border-radius: 10px" method="POST">
+
+  <h2 style='text-align : center; padding-top : 50px;'>와인 찾기</h2>
+  <form class="col-9" action="{% url 'wine_list' %}" style="margin: 0 auto;margin-top: 30px; border: 1px solid #d4d4d4; border-radius: 10px" method="POST">
     {% csrf_token %}
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio1" value="칠레">
-      <label class="form-check-label" for="inlineRadio1">칠레</label>
+    <div class="row justify-items-around" style="margin: 0 auto; height: auto;">
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio1" value="칠레">
+        <label class="form-check-label" for="inlineRadio1">칠레</label>
+      </div>
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio2" value="스페인">
+        <label class="form-check-label" for="inlineRadio2">스페인</label>
+      </div>
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio3" value="남아프리카">
+        <label class="form-check-label" for="inlineRadio3">남아프리카</label>
+      </div>
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio4" value="아르헨티나">
+        <label class="form-check-label" for="inlineRadio4">아르헨티나</label>
+      </div>
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio5" value="미국">
+        <label class="form-check-label" for="inlineRadio5">미국</label>
+      </div>
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio6" value="호주">
+        <label class="form-check-label" for="inlineRadio6">호주</label>
+      </div>
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio7" value="이태리">
+        <label class="form-check-label" for="inlineRadio7">이탈리아</label>
+      </div>
+      <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
+        <input class="form-check-input" type="radio" name="location" id="inlineRadio8" value="프랑스">
+        <label class="form-check-label" for="inlineRadio8">프랑스</label>
+      </div>
     </div>
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio2" value="스페인">
-      <label class="form-check-label" for="inlineRadio2">스페인</label>
+    <div class="row" style="height: auto; margin:0 auto;">
+      <div class="form col" style="font-size : 16px; padding-top:2px; text-align:center; ">
+        <input class="text col-9" name="name" id="winename" value="" placeholder="와인 이름을 입력해주세요" style="height: 35px;">
+      </div>
+      <button type="submit" class="btn btn-primary col col-1 align-self-end">확인</button>
     </div>
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio3" value="남아프리카">
-      <label class="form-check-label" for="inlineRadio3">남아프리카</label>
-    </div>
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio4" value="아르헨티나">
-      <label class="form-check-label" for="inlineRadio4">아르헨티나</label>
-    </div>
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio5" value="미국">
-      <label class="form-check-label" for="inlineRadio5">미국</label>
-    </div>
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio6" value="호주">
-      <label class="form-check-label" for="inlineRadio6">호주</label>
-    </div>
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio7" value="이태리">
-      <label class="form-check-label" for="inlineRadio7">이탈리아</label>
-    </div>
-    <div class="form-check form-check-inline col" style="font-size : 16px; padding-top:2px">
-      <input class="form-check-input" type="radio" name="location" id="inlineRadio8" value="프랑스">
-      <label class="form-check-label" for="inlineRadio8">프랑스</label>
-    </div>
-    <button type="submit" class="btn btn-primary col col-1">확인</button>
   </form>
   <div class="row justify-content-center" style="height:auto;">
     <div class="col-10">
