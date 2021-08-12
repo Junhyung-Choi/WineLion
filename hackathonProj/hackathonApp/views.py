@@ -34,7 +34,7 @@ def wine_info(request,id):
         "tannin": "/static/img/score/score"+str(tannin)+".png",
         "dry": "/static/img/score/score"+str(dry)+".png",
         "star": star,
-        "star_percent": str(int(star/5*100)) + str('%')
+        "star_percent": str(int(star/5*100)) + str('%'),
     }
     if request.method == "POST" :  
         new_data = Review()

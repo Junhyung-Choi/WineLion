@@ -153,6 +153,7 @@ td {
   height: 40px;
 }
 .review {
+  flex-direction: column;
   display: flex;
   align-items: center;
 }

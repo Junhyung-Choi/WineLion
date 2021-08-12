@@ -39,20 +39,22 @@
           </tr>
         </table>
       </div>
-      <div class="subcontent2" style="padding-left=3px">
+      <div class="subcontent2">
         <div class="winetaste">
-          <span style="font-weight:bold">Dry</span>
+          <span style="width:60px; text-align:center; font-weight:bold">Dry</span>
           <img src="{{dry}}">
         </div>
         <div class="winetaste">
-          <span style="margin-left:10px; font-weight:bold">Body</span>
+          <span style="width:60px; text-align:center; font-weight:bold">Body</span>
           <img src="{{body}}">
         </div>
         <div class="winetaste">
-          <span style="margin-left:10px; font-weight:bold">Tannin</span>
+          <span style="width:60px; text-align:center; font-weight:bold">Tannin</span>
           <img src="{{tannin}}">
         </div>
+        
       </div>
+      
       <div class="subcontent2">
         <div class="review">
           <span style="font-weight:bold;width: 60px; text-align:center;">평점</span>
@@ -63,16 +65,22 @@
       </div>
       <div class="subcontent review">
         <span style="font-weight:bold; width: 60px;">리뷰</span>
-        {% if reviews == "리뷰가 없습니다." %}
-          <p>리뷰가 없습니다.</p>
-        {% else %}
-          {% for review in reviews %}
-            {{review}}
-            {{review.star}}
-            {{review.body}}
-            <br>
-          {% endfor %}
-        {% endif %}
+        <div style="display:flex; flex-direction:column">
+          {% if reviews == "리뷰가 없습니다." %}
+            <p>리뷰가 없습니다.</p>
+          {% else %}
+            {% for review in reviews %}
+            <div style="text-align:left;" >
+              <div style="margin-top:3px; lightgray; border-bottom:solid 1px lightgray;">
+                <p >작성자 : {{review}}</p>
+                <p>작성시간 : {{review.write_time}}</p>
+                <p>평점 : {{review.star}}</p>
+                <p>내용 : {{review.body}}</p>
+              </div>
+            </div>
+            {% endfor %}
+          {% endif %}
+        </div>
       </div>
       {% if user.is_authenticated %}
         <script>
@@ -84,7 +92,7 @@
           <form class="review-form col-8" action="{%url 'wine_info' wine.id %}" method="POST">
             {%csrf_token%}
             <select class="form-select form-select-lg" name="star">
-              <option selected="selected">별점을 선택해주세요</option>
+              <option value="0"selected="selected">별점을 선택해주세요</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
