@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%-ay-xy(qd_s4y67h04am*hu34n8--v58kjxcakjre^($dcb@=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = 'hackathonApp.CustomUser'
 
