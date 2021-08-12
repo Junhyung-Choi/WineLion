@@ -2,15 +2,8 @@
 {% load static %}
 {% block content %}
   <script>
-    if ({{
-        msg
-      }} != "") 
-      alert({{
-          msg
-        }})
-    console.log({{
-        sb
-      }})
+    if ("{{msg}}" != "") 
+      alert("{{msg}}");
   </script>
   <h2 style='text-align : center; padding-top : 50px;'>와인 찾기</h2>
   <form class="col-9" action="{% url 'wine_list' %}" style="margin: 0 auto;margin-top: 30px; border: 1px solid #d4d4d4; border-radius: 10px" method="POST">
