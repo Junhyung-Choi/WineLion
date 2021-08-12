@@ -236,6 +236,10 @@ def wine_list(request):
         "cards": cards,
     }
     return render(request, 'wine_list.html',context = context)
+    
+def selling(request):
+    return render(request,'selling.html')
+
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =

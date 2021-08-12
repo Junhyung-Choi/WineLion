@@ -7,8 +7,8 @@
       <div class="numbertext">1 / 6</div>
       <div class="image1"></div>
       <div class="text_box">
-        <p class="tag_txt1">와인먹을래?  회원혜택</p> 
-        <p class="tag_txt2">지금 예약하면<br>UP TO 10% + 10% 추가할인,<br>최대 5% 적립까지</p> 
+        <p class="tag_txt1">와인먹을래? 회원혜택</p>
+        <p class="tag_txt2">지금 예약하면<br>UP TO 10% + 10% 추가할인,<br>최대 5% 적립까지</p>
         <a class="tag_txt3">회원혜택 확인</a>
       </div>
     </div>
@@ -17,8 +17,8 @@
       <div class="numbertext">2 / 6</div>
       <div class="image2"></div>
       <div class="text_box">
-        <p class="tag_txt1">음식별 와인 추천</p> 
-        <p class="tag_txt2">오늘 저녁 메뉴와<br>어울리는 와인 찾기!<br>바디, 탄닌, 드라이까지</p> 
+        <p class="tag_txt1">음식별 와인 추천</p>
+        <p class="tag_txt2">오늘 저녁 메뉴와<br>어울리는 와인 찾기!<br>바디, 탄닌, 드라이까지</p>
         <a class="tag_txt3">와인 추천 받기</a>
       </div>
     </div>
@@ -27,8 +27,8 @@
       <div class="numbertext">3 / 6</div>
       <div class="image3"></div>
       <div class="text_box">
-        <p class="tag_txt1">와인가이드</p> 
-        <p class="tag_txt2">와인의 모든 것<br>A부터 Z까지<br>하나 하나 자세히</p> 
+        <p class="tag_txt1">와인가이드</p>
+        <p class="tag_txt2">와인의 모든 것<br>A부터 Z까지<br>하나 하나 자세히</p>
         <a class="tag_txt3">가이드 바로가기</a>
       </div>
     </div>
@@ -37,8 +37,8 @@
       <div class="numbertext">4 / 6</div>
       <div class="image4"></div>
       <div class="text_box">
-        <p class="tag_txt1">분위기별 추천</p> 
-        <p class="tag_txt2">오늘의 분위기와<br>어울리는 와인은 무엇?<br>나와 어울리는 와인 찾기</p> 
+        <p class="tag_txt1">분위기별 추천</p>
+        <p class="tag_txt2">오늘의 분위기와<br>어울리는 와인은 무엇?<br>나와 어울리는 와인 찾기</p>
         <a class="tag_txt3">추천 확인하러 가기</a>
       </div>
     </div>
@@ -47,8 +47,8 @@
       <div class="numbertext">5 / 6</div>
       <div class="image5"></div>
       <div class="text_box">
-        <p class="tag_txt1">주변 할인 매장</p> 
-        <p class="tag_txt2">우리집 주변 할인 매장<br>어디어디가 가장 쌀까?<br>지금 바로 확인하러</p> 
+        <p class="tag_txt1">주변 할인 매장</p>
+        <p class="tag_txt2">우리집 주변 할인 매장<br>어디어디가 가장 쌀까?<br>지금 바로 확인하러</p>
         <a class="tag_txt3">매장 알아보기</a>
       </div>
     </div>
@@ -57,8 +57,8 @@
       <div class="numbertext">6 / 6</div>
       <div class="image6"></div>
       <div class="text_box">
-        <p class="tag_txt1">이달의 추천 와인</p> 
-        <p class="tag_txt2">오늘 당신의 선택은?<br>고민하고 있다면 지금 바로<br>취향따라 추천 받아보기</p> 
+        <p class="tag_txt1">이달의 추천 와인</p>
+        <p class="tag_txt2">오늘 당신의 선택은?<br>고민하고 있다면 지금 바로<br>취향따라 추천 받아보기</p>
         <a class="tag_txt3">오늘의 와인 추천</a>
       </div>
     </div>
@@ -68,46 +68,32 @@
   </div>
   <br/>
 
-
-
   <div class="Hashtag">
     <div class="Hashtag_inner">
       <div class="swiper-container Hashtag_slide swiper-container-initialized swiper-container-horizontal">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
-          <div class="swiper-slide swiper-slide-active" style="margin-right: 16px">
+          <div class="swiper-slide swiper-slide-active" style="margin-right: 75px">
             <a>
-              <img src="{% static 'img/banner_wine.png'%}"/>
+              <img src="{% static 'img/read.png'%}"/>
               <span>와인 가이드</span>
             </a>
           </div>
-          <div class="swiper-slide swiper-slide-next" style="margin-right: 16px">
+          <div class="swiper-slide" style="margin-right: 75px">
+            <a href="{% url 'wine_list' %}">
+              <img src="{% static 'img/banner_wine.png' %}"/>
+              <span>와인 보기</span>
+            </a>
+          </div>
+          <div class="swiper-slide swiper-slide-next" style="margin-right: 75px">
             <a href="{% url 'food_recommend' %}">
               <img src="{% static 'img/banner_food.jpg'%}"/>
               <span>음식 추천받기</span>
             </a>
           </div>
-          <div class="swiper-slide" style="margin-right: 16px">
-            <a>
-              <img src="{% static 'img/sale.png' %}"/>
-              <span>회원 특가</span>
-            </a>
-          </div>
-          <div class="swiper-slide" style="margin-right: 16px">
-            <a>
-              <img src="{% static 'img/story.png' %}"/>
-              <span>와인 스토리</span>
-            </a>
-          </div>
-          <div class="swiper-slide" style="margin-right: 16px">
-            <a>
+          <div class="swiper-slide" style="margin-right: 75px">
+            <a href="{% url 'selling' %}">
               <img src="{% static 'img/market.png' %}"/>
               <span>할인 매장</span>
-            </a>
-          </div>
-          <div class="swiper-slide swiper-slide-next" style="margin-right: 16px">
-            <a>
-              <img src="{% static 'img/review.png' %}"/>
-              <span>와인 리뷰</span>
             </a>
           </div>
         </div>
