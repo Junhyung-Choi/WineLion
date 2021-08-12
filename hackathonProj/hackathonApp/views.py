@@ -224,16 +224,29 @@ def practice(request):
         return render(request, 'recommend.html',context = context)
 
 def wine_list(request):
+    message = ""
+    isSearch = False
     if request.method == "POST":
         wines = Wine.objects.filter(country = request.POST['location'])
+        print(request.POST)
+        if (request.POST['winename'] != ""):
+            name_list = []
+            for wine in Wine.objects.all():
+                name_list.append(wine.name)
+            print(name_list)
+            if (request.POST['winename'] in name_list):
+                return redirect('wine_info',Wine.objects.get(name = request.POST['winename']).id)
+            else:
+                message = "검색하신 와인이 존재하지 않습니다"
     else:
-        wines = Wine.objects.all();
+        wines = Wine.objects.all()    
     cards = [{} for _ in range(len(wines))]
     for i in range(len(wines)):
         cards[i]['img'] = "/static/img/list/num" + str(wines[i].id) + ".jpg"
         cards[i]['data'] = wines[i]
     context = {
         "cards": cards,
+        "message": message,
     }
     return render(request, 'wine_list.html',context = context)
     
