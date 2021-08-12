@@ -224,7 +224,7 @@ def practice(request):
         return render(request, 'recommend.html',context = context)
 
 def wine_list(request):
-    message = ""
+    msg = ""
     isSearch = False
     if request.method == "POST":
         wines = Wine.objects.filter(country = request.POST['location'])
@@ -235,7 +235,7 @@ def wine_list(request):
             if (request.POST['winename'] in name_list):
                 return redirect('wine_info',Wine.objects.get(name = request.POST['winename']).id)
             else:
-                message = "검색하신 와인이 존재하지 않습니다"
+                msg = "검색하신 와인이 존재하지 않습니다"
                 wines = Wine.objects.all()
     else:
         wines = Wine.objects.all()    
@@ -245,7 +245,7 @@ def wine_list(request):
         cards[i]['data'] = wines[i]
     context = {
         "cards": cards,
-        "message": message,
+        "msg": msg,
     }
     return render(request, 'wine_list.html',context = context)
     
