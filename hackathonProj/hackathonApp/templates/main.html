@@ -74,40 +74,28 @@
     <div class="Hashtag_inner">
       <div class="swiper-container Hashtag_slide swiper-container-initialized swiper-container-horizontal">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
-          <div class="swiper-slide swiper-slide-active" style="margin-right: 16px">
+          <div class="swiper-slide swiper-slide-active" style="margin-right: 75px">
             <a>
-              <img src="{% static 'img/banner_wine.png'%}"/>
+              <img src="{% static 'img/read.png'%}"/>
               <span>와인 가이드</span>
             </a>
           </div>
-          <div class="swiper-slide swiper-slide-next" style="margin-right: 16px">
+          <div class="swiper-slide" style="margin-right: 75px">
+            <a>
+              <img src="{% static 'img/banner_wine.png' %}"/>
+              <span>와인 보기</span>
+            </a>
+          </div>
+          <div class="swiper-slide swiper-slide-next" style="margin-right: 75px">
             <a href="{% url 'food_recommend' %}">
               <img src="{% static 'img/banner_food.jpg'%}"/>
               <span>음식 추천받기</span>
             </a>
           </div>
-          <div class="swiper-slide" style="margin-right: 16px">
-            <a>
-              <img src="{% static 'img/sale.png' %}"/>
-              <span>회원 특가</span>
-            </a>
-          </div>
-          <div class="swiper-slide" style="margin-right: 16px">
-            <a>
-              <img src="{% static 'img/story.png' %}"/>
-              <span>와인 스토리</span>
-            </a>
-          </div>
-          <div class="swiper-slide" style="margin-right: 16px">
-            <a>
+          <div class="swiper-slide" style="margin-right: 75px">
+            <a href="{% url 'selling' %}">
               <img src="{% static 'img/market.png' %}"/>
               <span>할인 매장</span>
-            </a>
-          </div>
-          <div class="swiper-slide swiper-slide-next" style="margin-right: 16px">
-            <a>
-              <img src="{% static 'img/review.png' %}"/>
-              <span>와인 리뷰</span>
             </a>
           </div>
         </div>

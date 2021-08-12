@@ -140,6 +140,9 @@ def practice(request):
     }
     return render(request, 'practice.html',context = context)
 
+def selling(request):
+    return render(request,'selling.html')
+
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
