@@ -75,10 +75,10 @@
         {% endif %}
       </div>
       {% if user.is_authenticated %}
-      <script>
-        if ("{{message}}" != "") 
-          alert("{{ message }}")
-      </script>
+        <script>
+          if ("{{message}}" != "") 
+            alert("{{ message }}")
+        </script>
         <div class="review">
           <span style="font-weight:bold">리뷰쓰기</span>
           <form class="review-form col-8" action="{%url 'wine_info' wine.id %}" method="POST">

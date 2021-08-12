@@ -112,7 +112,44 @@ def food_recommend(request):
     return render(request, 'recommend.html')
 
 def practice(request):
-    return render(request,'side.html')
+    # if request.method == "POST":
+    # foods = Food.objects.filter(location=request.POST['location'])
+    foods = Food.objects.filter(location="KR")
+    print(foods)
+    wines = [{} for _ in range(len(foods))]
+    rows = []
+    for i in range(1,len(foods)//3+1):
+        row = {}
+        row['num'] = i
+        row['cards'] = [{} for _ in range(3)]
+        for j in range(3):
+            row['cards'][j]['num'] = (i-1) * 3 + j
+            row['cards'][j]['food'] = foods[(i-1) * 3 + j]
+            row['cards'][j]['wines'] = foods[(i-1) * 3 + j].wines.all()
+        rows.append(row)
+    row = {}
+    row['num'] = i+1
+    row['cards'] = [{} for _ in range(len(foods) - (len(foods)//3) * 3)]
+    print(len(foods) - (len(foods)//3) * 3)
+    i += 1
+    for j in range(len(foods) - (len(foods)//3) * 3):
+        print(j)
+        row['cards'][j]['num'] = (i-1) * 3 + j
+        row['cards'][j]['food'] = foods[(i-1) * 3 + j]
+        row['cards'][j]['wines'] = foods[(i-1) * 3 + j].wines.all()
+    rows.append(row)
+    # for i in range(len(foods)):
+    #     wines[i]["name"] = foods[i].name
+    #     wines[i]["wine_list"] = []
+    #     for wine in foods[i].wines.all():
+    #         wines[i]["wine_list"].append(wine)
+    context = {
+        "foods": foods,
+        "wines": wines,
+        "rows": rows,
+    }
+    return render(request, 'practice.html',context = context)
+    # return render(request,'practice.html')
 
 
 # ===================================================
