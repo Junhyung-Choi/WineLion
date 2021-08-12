@@ -228,16 +228,15 @@ def wine_list(request):
     isSearch = False
     if request.method == "POST":
         wines = Wine.objects.filter(country = request.POST['location'])
-        print(request.POST)
         if (request.POST['winename'] != ""):
             name_list = []
             for wine in Wine.objects.all():
                 name_list.append(wine.name)
-            print(name_list)
             if (request.POST['winename'] in name_list):
                 return redirect('wine_info',Wine.objects.get(name = request.POST['winename']).id)
             else:
                 message = "검색하신 와인이 존재하지 않습니다"
+                wines = Wine.objects.all()
     else:
         wines = Wine.objects.all()    
     cards = [{} for _ in range(len(wines))]
