@@ -253,7 +253,9 @@ def wine_list(request):
     for i in range(len(wines)):
         cards[i]['img'] = "/static/img/list/num" + str(wines[i].id) + ".jpg"
         cards[i]['data'] = wines[i]
-    debug.append(9)
+    cards.append({})
+    cards[len(cards)-1]['img'] = "/static/img/foods2.png"
+    cards[len(cards)-1]['data'] = wines[len(cards)-2]
     context = {
         "cards": cards,
         "msg": msg,
