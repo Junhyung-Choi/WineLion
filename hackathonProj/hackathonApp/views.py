@@ -257,6 +257,7 @@ def wine_list(request):
         "cards": cards,
         "msg": msg,
         "debug": debug,
+        "sb": "sb"
     }
     return render(request, 'wine_list.html',context = context)
     
