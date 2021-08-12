@@ -231,6 +231,7 @@ def wine_list(request):
     if request.method == "POST":
         debug.append(2)
         wines = Wine.objects.filter(country = request.POST['location'])
+        return redirect('main.html')
         if (request.POST['winename'] != ""):
             debug.append(3)
             name_list = []
