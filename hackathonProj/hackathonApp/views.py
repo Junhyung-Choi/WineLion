@@ -223,6 +223,19 @@ def practice(request):
         }
         return render(request, 'recommend.html',context = context)
 
+def wine_list(request):
+    if request.method == "POST":
+        wines = Wine.objects.filter(country = request.POST['location'])
+    else:
+        wines = Wine.objects.all();
+    cards = [{} for _ in range(len(wines))]
+    for i in range(len(wines)):
+        cards[i]['img'] = "/static/img/list/num" + str(wines[i].id) + ".jpg"
+        cards[i]['data'] = wines[i]
+    context = {
+        "cards": cards,
+    }
+    return render(request, 'wine_list.html',context = context)
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
