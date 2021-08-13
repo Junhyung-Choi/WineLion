@@ -1,7 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<main class="container">
+{% block content %}
+<div class="container" style="height:3800px">
 
   <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
     <div class="col-md-6 px-0">
@@ -45,15 +49,26 @@
 
   <div class="row g-5">
     <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom" style="padding:5%">
         와인 가이드는 지속적으로 업데이트 예정입니다
       </h3>
       <div class="mb-1 text-muted">2021.08.13.ver</div>
-
+<style>
+h2{
+  padding:2%
+}
+blockquote{
+  padding:3%;
+  border:solid 1px lightgray;
+}
+</style>
       <article class="blog-post">
         <h2 class="blog-post-title">와인의 종류</h2>
         <p class="blog-post-meta">와인을 만드는 양조용 포도는 50여종으로 매우 다양합니다. <a href="https://ko.wikipedia.org/wiki/%ED%8F%AC%EB%8F%84%EC%A3%BC#%ED%8F%AC%EB%8F%84_%ED%92%88%EC%A2%85">포도 품종 더 보러가기</a></p>
-        <p>와인에 입문인 우리는 대표적인 다섯 종류만 알아도 충분합니다. <br><blockquote class="blockquote">레드와인: '까베르네쇼비뇽' '메를로' '피노 누아' <br>화이트와인: '샤도네이' '소비뇽 블랑'</blockquote></p>
+        <p style="margin-bottom:10px">와인에 입문인 우리는 대표적인 다섯 종류만 알아도 충분합니다.
+        <br>
+        <blockquote class="blockquote">레드와인: '까베르네쇼비뇽' '메를로' '피노 누아' 
+        <br>화이트와인: '샤도네이' '소비뇽 블랑'</blockquote></p>
         
         <h2>와인 색</h2>
         <blockquote class="blockquote">
@@ -61,7 +76,7 @@
         </blockquote>
         <p>크게 레드, 화이트, 로제로 나누며, <br>레드와인은 적포도 품종으로 생산, 화이트 와인은 주로 청포도 품종을 사용합니다.<br>
 로제 와인은 적포도 품종을 생산하는데 양조할 때 색깔이 함유되어 있는 껍질을 건져내는 시간을 짧게 하여 분홍빛의 로맨틱한 색상을 얻습니다.</p>
-        <h3>와인의 맛 표현</h3>
+        <h2>와인의 맛 표현</h2>
         <p>「바디감이 있다」 라는 표현은 물과 우유를 상상하시면 이해하기 쉽습니다.<br>
 「드라이하다」 라는 표현은 그 와인이 '달지 않다' 란 뜻입니다. 사실 달지 않은 와인이 대부분입니다.<br>
 「탄닌」은 와인의 떪은 맛을 말합니다. 떪은 맛은 호불호가 갈리지만, 보통 고가의 와인은 탄닌이 강한 편입니다.<br>
@@ -110,7 +125,7 @@
           <li>빈티지를 표시할 수 있는 와인은 그 해에 수확한 포도만으로 만든 와인이에요.</li>
           <li>병에 연도가 표기되어 있지 않다면 서로 다른 시기에 생산한 포도를 섞어 만든 것이지요.</li>
         </ul>
-        <blockquote class="blockquote">
+        <blockquote class="blockquote" style="margin-top:3%">
           <p> 나의 첫 와인은? </p>
         </blockquote>
         <ul>
@@ -126,7 +141,7 @@
           <li>호주산 쉬라즈나 까베르네 소비뇽, 미국산 진판델 정도를 음미할 때가 되면 이미 초보자가 아닙니다.</li>  
           <li>이런 과정 뒤에 묵직한 느낌의 탄닌 맛이 강한 고급 와인(프랑스산 보르도 와인, 까베르네 소비뇽)들을 접하면 와인을 여유있게 즐기는 애호가가 된답니다.</li>
         </ul>
-        <blockquote class="blockquote">
+        <blockquote class="blockquote" style="margin-top:3%">
           <p> 와인에 대한 선입견을 버리기 </p>
         </blockquote>
         <ul>
@@ -141,9 +156,8 @@
 
 
       <nav class="blog-pagination" aria-label="Pagination">
-        <a class="btn btn-outline-primary" href="#">페이지 상단으로</a>
+        <a class="btn btn-outline-primary" href="#" style="margin:3% 3% 3% 0">페이지 상단으로</a>
         <p><br> </p>
-        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
       </nav>
 
     </div>
@@ -151,8 +165,8 @@
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
-          <h4 class="fst-italic">About</h4>
-          <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+          <h4 class="fst-italic">WineLion</h4>
+          <p class="mb-0"></p>
         </div>
 
         <div class="p-4">
@@ -184,5 +198,5 @@
       </div>
     </div>
   </div>
-
-</main>
+</div>
+{% endblock content %}

@@ -252,6 +252,9 @@ def wine_list(request):
 def selling(request):
     return render(request,'selling.html')
 
+def guide(request):
+    return render(request,'guide.html')
+
 
 # ===================================================
 # =              코드 수정 전에 주의사항!           =
