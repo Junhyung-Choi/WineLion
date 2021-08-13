@@ -32,7 +32,8 @@ urlpatterns = [
     path('food_recommend/', food_recommend, name = 'food_recommend'),
     path('wine_list/', wine_list, name = 'wine_list'),
     #path('practice/',practice,name = 'practice'),
-    path('selling', selling, name = 'selling')
+    path('selling/', selling, name = 'selling'),
+    path('guide/',guide,name = 'guide'),
     #path('datas/',insert_data,name= 'insert_data')   # //DB 입력이 끝나서 주석처리해둠. db.sqlite3 파일을 지우지 않는한 활성화 시키지 말 것
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
